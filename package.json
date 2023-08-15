@@ -1,0 +1,15 @@
+{
+  "name": "Pocketxtra-ui-library",
+  "version": "1.0.0",
+  "description": "UI library for the pocketxtra react native app",
+  "main": "index.js",
+  "author": "pocketxtra",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "@types/react-native": "^0.72.2",
+    "react": "^18.2.0",
+    "react-native": "^0.72.4",
+    "typescript": "^5.1.6"
+  }
+}
