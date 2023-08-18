@@ -7,5 +7,11 @@ export interface DashBoardInfoCardInterface{
     colorDark?: string,
     CompanyName?: string,
     borderRadius?: number,
-    
+    imageSource?: ImageSource,
+    fontFamily?: string
 }
+
+interface ImageSource {
+    uri?: string; 
+    path?: string; 
+  }
