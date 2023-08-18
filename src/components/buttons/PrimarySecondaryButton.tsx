@@ -18,6 +18,10 @@ export const PrimarySecondaryButton: React.FC<PrimarySecondaryButtonInterface & 
     borderWidth=3,
     borderRadius=22,
     disabled=false,
+    marginTop=0,
+    marginBottom=0,
+    marginLeft=0,
+    marginRight=0,
     onPress = () => {},
 }) => {
     return (
@@ -36,8 +40,10 @@ export const PrimarySecondaryButton: React.FC<PrimarySecondaryButtonInterface & 
                 fontSize: responsiveFontSize(fontSize),
                 textAlignVertical: 'center',
                 color: disabled?"#fff":color,
-                marginTop:0,
-                marginBottom:0
+                marginTop:responsiveWidth(marginTop),
+                marginBottom:responsiveWidth(marginBottom),
+                marginLeft:responsiveWidth(marginLeft),
+                marginRight:responsiveWidth(marginRight),
             }}
             contentStyle={{ alignSelf: 'center' }}
             onPress={onPress}

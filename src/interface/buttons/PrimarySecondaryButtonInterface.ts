@@ -9,4 +9,8 @@ export interface PrimarySecondaryButtonInterface {
     borderWidth?:number,
     borderRadius?:number,
     disabled?:boolean,
+    marginTop?:number,
+    marginBottom?:number,
+    marginLeft?:number,
+    marginRight?:number,
 }
