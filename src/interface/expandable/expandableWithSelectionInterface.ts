@@ -10,6 +10,18 @@ export interface expandableWithSelectionInterface{
     borderRadius?: number,
     borderWidth?: number,
     backgroundColour?: string,
-    fontSize?: number
-    
+    fontSize?: number,
+    IconSize?: number,
+    IconColor?: string,
+    exTextSize?: number,
+    textColor?: string,
+    borderColor?: string,
+    exTextColor?: string
+    imageSource?: ImageSource,
+    fontFamily?: string
 }
+
+interface ImageSource {
+    uri?: string; 
+    path?: string; 
+  }

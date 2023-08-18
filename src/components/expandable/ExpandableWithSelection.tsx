@@ -9,6 +9,7 @@ import {
     responsiveFontSize
 } from "react-native-responsive-dimensions";
 import { expandableWithSelectionInterface } from '../../interface/expandable/expandableWithSelectionInterface';
+// import imagePath from '../../../assets/favicon.png'; 
 
 export const ExpandableWithSelection: React.FC<expandableWithSelectionInterface> = ({
     Icon = 'checkmark-circle',
@@ -16,17 +17,25 @@ export const ExpandableWithSelection: React.FC<expandableWithSelectionInterface>
     expanablePara = "Native Stack Navigator provides a way for your app to transition between screens where each new screen is placed on top of a stac",
     userRole = "Organiser",
     successColor = "#24B491",
-    width= 350,
-    height= 50,
-    borderRadius = 8,
+    width= 90,
+    height= 20,
+    borderRadius = 5,
     borderWidth = 1,
     backgroundColour = '#000',
-    fontSize= 2
+    fontSize= 2,
+    IconSize = 12,
+    IconColor = "#ccc",
+    exTextSize = 2,
+    textColor = "#ccc",
+    borderColor = "#fff",
+    exTextColor = "#fff",
+    imageSource = { uri: 'https://picsum.photos/700' },
+     fontFamily = 'Nunito'
     
 }) => {
     const [expanded, setExpanded] = React.useState(false);
 
-    const [penColor, setPenColor] = React.useState('#fff');
+    const [penColor, setPenColor] = React.useState(IconColor);
     const [buttonText, setButtonText] = React.useState('Select');
 
     const handlePressButton = () => {
@@ -44,15 +53,18 @@ export const ExpandableWithSelection: React.FC<expandableWithSelectionInterface>
                 title={userRole}
                 right={props => (
                     <View style={{ flexDirection: "row", alignItems: "center" }}>
-                        <Pen
+                        
+                         <Pen
                             {...props}
                             name={Icon}
-                            size={35}
+                            size={responsiveWidth(IconSize)}
                             color={penColor}
-                            style={{ alignItems: 'center', justifyContent: 'center', marginTop: responsiveWidth(-2) }}
+                            style={{ alignItems: 'center', justifyContent: 'center', marginTop: responsiveWidth(-3) }}
 
 
                         />
+                       
+                        
                         <Pen
                             {...props}
                             name={IconInfo}
@@ -69,45 +81,57 @@ export const ExpandableWithSelection: React.FC<expandableWithSelectionInterface>
                 onPress={handlePress}
 
                 style={{
-                    borderColor: '#000',
-                    borderRadius: borderRadius,
-                    borderWidth: borderWidth,
-                    width: width,
-                    height: height,
+                    borderColor: borderColor,
+                    borderRadius: responsiveWidth(borderRadius),
+                    borderWidth: responsiveWidth(borderWidth),
+                    width: responsiveWidth(width),
+                    height: responsiveWidth(height),
                     alignSelf: 'center',
                     backgroundColor: backgroundColour,
                     paddingBottom: 0
 
                 }}
-                titleStyle={{ color: 'white', fontSize: responsiveFontSize(fontSize) ,  marginBottom: responsiveWidth(2)}}
+                titleStyle={{ color: textColor , fontSize: responsiveFontSize(fontSize) ,  marginBottom: responsiveWidth(2), fontFamily: fontFamily}}
 
             >
                 {expanded && (
                     <View
                         style={{
-                            borderWidth: 1,
-                            borderColor: '#ccc',
-                            borderRadius: 8,
+                            borderWidth: responsiveWidth(borderWidth),
+                            borderColor: borderColor,
+                            borderRadius: responsiveWidth(borderRadius),
                             alignSelf: 'center',
-                            width: 350,
+                            width:  responsiveWidth(width),
                             height: 'auto',
                             paddingBottom: 25,
-                            backgroundColor: "#000000",
+                            backgroundColor: backgroundColour,
                             
                         }}
 
-                    ><Image source={{ uri: 'https://picsum.photos/700' }} style={{height: responsiveWidth(10), width: responsiveWidth(10),  alignSelf: 'center', marginBottom: 20, marginTop: 20 }} />
-                        <Text style={{ color: "#fff",  alignItems: 'flex-end', fontSize: responsiveFontSize(2.6), marginBottom: responsiveWidth(3) }}>
+                    > 
+                    <Image
+                      source={{ uri: imageSource.uri }}
+                      style={{
+                        height: responsiveWidth(40),
+                        width: responsiveWidth(40),
+                        alignSelf: 'center',
+                        marginBottom: responsiveWidth(10),
+                        marginTop: responsiveWidth(10),
+                        marginRight: responsiveWidth(10),
+                      }}
+                    />
+                  
+                        <Text style={{ color: exTextColor,  alignItems: 'flex-end', fontSize: responsiveFontSize(exTextSize), marginBottom: responsiveWidth(3), fontFamily: fontFamily }}>
                             {userRole}
                         </Text>
-                        <Text style={{ color: "#fff",  marginRight: responsiveWidth(10), }}>
+                        <Text style={{ color: exTextColor,  marginRight: responsiveWidth(10), fontFamily: fontFamily }}>
                             {expanablePara}
                         </Text>
                         <Pressable
                             onPress={handlePressButton}
                             style={{ backgroundColor: "#24B491", width: 65, height: 34, borderRadius: 12, alignSelf: 'flex-end', marginRight: responsiveWidth(10), marginTop: responsiveWidth(5), alignItems: "center", justifyContent: "center" }}>
                             <Text
-                                style={{ color: "#fff", textAlign: "center" }}>
+                                style={{ color: "#fff", textAlign: "center", fontFamily: fontFamily }}>
                                 {buttonText}
                             </Text>
                         </Pressable>

@@ -11,7 +11,19 @@ import {
 import { expandableInputInterface } from '../../interface/expandable/expandableInputInterface';
 
 export const ExpandableInput: React.FC<expandableInputInterface> = ({
-    Icon = 'pencil'
+    Icon = 'pencil',
+    width = 100,
+    title= "Expandable",
+    height = 20,
+    bgColor = "#000",
+    borderRadius = 3,
+    borderWidth = 1,
+    borderColor = "#000",
+    IconColor = '#B0E50E',
+    textColor = "#ccc",
+    textSize = 2,
+    IconSize = 7,
+    fontFamily = "Nunito"
 }) => {
     const [expanded, setExpanded] = React.useState(true);
     const [inputValue, setInputValue] = React.useState('');
@@ -20,38 +32,42 @@ export const ExpandableInput: React.FC<expandableInputInterface> = ({
   return (
     <List.Section >
       <List.Accordion
-        title="Personal Details"
+        title= {title}
+        titleStyle={{color : textColor, fontSize : responsiveFontSize(textSize), alignItems: 'center', justifyContent: 'center', fontFamily: fontFamily}}
         left={() => null}
         style={{
-            borderColor: '#000', 
-            borderRadius: 8,   
-            borderWidth: 1,
-            width: 350,
-            height: 50,
+            borderColor: borderColor, 
+            borderRadius: responsiveWidth(borderRadius),   
+            borderWidth: responsiveWidth(borderWidth),
+            width: responsiveWidth(width),
+            height: responsiveWidth(height),
             alignSelf : 'center',
-            backgroundColor: "#000000",
+            backgroundColor: bgColor,
+            
                
         }}
-        titleStyle={{ color: 'white' }}
         right={props => (
-            <Pen
-                {...props}
-                name={expanded ? Icon : Icon }
-                size={21}
-                color={'#B0E50E'}
-                style={{marginTop: -10}}
-            />
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+          <Pen
+            {...props}
+            name={expanded ? Icon : Icon}
+            size= {responsiveWidth(IconSize)}
+            color={IconColor}
+            
+          />
+        </View>
         )}>
         {expanded && (
           <View
             style={{
-              borderWidth: 1,
-              borderColor: '#ccc',
-              borderRadius: 8,
+              borderWidth: responsiveWidth(borderWidth),
+              borderColor: borderColor,
+              borderRadius: responsiveWidth(borderRadius),
               alignSelf : 'center',
-              width: 350,
-              height: 250,
-              backgroundColor: "#000000",
+              width: responsiveWidth(width),
+              height: 'auto',
+              paddingBottom: responsiveWidth(10),
+              backgroundColor: bgColor,
             }}
           />
         )}

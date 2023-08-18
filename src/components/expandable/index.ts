@@ -1,2 +1,2 @@
-export {ExpandableInput} from './ExpandableInput.tsx';
-export {ExpandableWithSelection} from './ExpandableWithSelection.tsx'
+export {ExpandableInput} from './ExpandableInput';
+export {ExpandableWithSelection} from './ExpandableWithSelection'
