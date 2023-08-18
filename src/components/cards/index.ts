@@ -1,4 +1,5 @@
-export { default as ContainedButton } from '../buttons/containedButton';
+export {OrgEventInfoCard} from '../cards/CardComponentTemp.tsx';
+export {DashBaordInfoCard} from '../cards/DashBoardInfoCard.tsx'
 
-// export all types of buttons here 
+
 
