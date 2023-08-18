@@ -11,5 +11,9 @@
     "react": "^18.2.0",
     "react-native": "^0.72.4",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "react-native-responsive-dimensions": "^3.1.1",
+    "react-native-vector-icons": "^10.0.0"
   }
 }
