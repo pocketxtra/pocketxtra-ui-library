@@ -1,0 +1,2 @@
+export {ImagePickerComp} from './ImagePickerComp'
+
