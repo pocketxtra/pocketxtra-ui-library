@@ -21,11 +21,12 @@ export const OrgEventInfoCard: React.FC<OrgEventInfoCardInterface> = ({
   EventStatus = "UpComming",
   CompanyName = "Jio India",
   borderRadius = 10,
-  fontSize = 1.7
+  fontSize = 1.7,
+  imageSource = { uri: 'https://picsum.photos/700' }
 }) => {
   return (
     <Card style={{ width: responsiveWidth(width), height: responsiveHeight(height), borderRadius : responsiveWidth(borderRadius)}}>
-      <Card.Cover source={{ uri: 'https://picsum.photos/700' }} style={{ width: responsiveWidth(width), height: responsiveHeight(height)}}/>
+      <Card.Cover source={{ uri: imageSource.uri }} style={{ width: responsiveWidth(width), height: responsiveHeight(height)}}/>
       
       <View style={styles.dateSection}>
         <Text style={[styles.dateText, {color: color, fontFamily: fontFamily, marginLeft: responsiveWidth(2),}]}>{EventDate}</Text>
@@ -37,7 +38,16 @@ export const OrgEventInfoCard: React.FC<OrgEventInfoCardInterface> = ({
         <Text style={{ color: color, marginRight: responsiveWidth(2),  fontFamily: fontFamily, fontSize: responsiveFontSize(fontSize) }}>{Company}</Text>
       </View>
       
-      <View style={[styles.cardContent, {borderBottomLeftRadius: responsiveWidth(2), borderBottomRightRadius: responsiveWidth(2)}]}>
+      <View style={[styles.cardContent,EventStatus === "UpComming"
+    ? {
+        borderBottomLeftRadius: responsiveWidth(2),
+        borderBottomRightRadius: responsiveWidth(2),
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      }
+    : {
+        borderBottomLeftRadius: responsiveWidth(2),
+        borderBottomRightRadius: responsiveWidth(2)
+      }]}>
         <Text variant="bodySmall" style={{ color: 'white', fontFamily: fontFamily }}>{Eventdes}</Text>
         {
           EventStatus === "UpComming" ? (
@@ -81,7 +91,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: responsiveWidth(4),
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     height: 'auto',
     minHeight: 'auto',
   },

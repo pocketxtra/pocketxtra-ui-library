@@ -1,5 +1,5 @@
-export {OrgEventInfoCard} from '../cards/CardComponentTemp.tsx';
-export {DashBaordInfoCard} from '../cards/DashBoardInfoCard.tsx'
+export {OrgEventInfoCard} from './CardComponentTemp';
+export {DashBaordInfoCard} from './DashBoardInfoCard'
 
 
 
