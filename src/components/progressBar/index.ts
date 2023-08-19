@@ -1,4 +1,4 @@
-export { default as ContainedButton } from '../buttons/containedButton';
+import { ProgressBarComponent } from "./ProgressBar";
 
-// export all types of buttons here 
+// export all types of buttons here
 
