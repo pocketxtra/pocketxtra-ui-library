@@ -6,6 +6,7 @@ import {
   responsiveWidth,
   responsiveFontSize
 } from "react-native-responsive-dimensions";
+import { BlurView } from 'expo-blur';
 import { DashBoardInfoCardInterface } from '../../interface/cards/DashBoardInfoCardInterface';
 
 export const DashBaordInfoCard: React.FC<DashBoardInfoCardInterface> =({
@@ -24,12 +25,14 @@ export const DashBaordInfoCard: React.FC<DashBoardInfoCardInterface> =({
     <Card style={{width: responsiveWidth(width), height: responsiveHeight(height), borderRadius: responsiveWidth(borderRadius)}}>
        <Card.Cover  source={{ uri: imageSource.uri }} style={{width: responsiveWidth(width), height: responsiveHeight(height), borderRadius: responsiveWidth(borderRadius)}} />
        
-       <View style={[styles.cardContent, {borderBottomLeftRadius: responsiveWidth(borderRadius), borderBottomRightRadius: responsiveWidth(borderRadius)}]}>
+       <BlurView style={[styles.cardContent, {borderBottomLeftRadius: responsiveWidth(borderRadius), borderBottomRightRadius: responsiveWidth(borderRadius), 
+              overflow: "hidden",  
+              flex: 1,  }]} intensity={30} tint="dark">
         <Text style={{ color: color, marginRight: responsiveWidth(12), fontSize: responsiveFontSize(2.3), marginBottom: responsiveHeight(1.25) , fontFamily : fontFamily }}>{EventName}</Text>
         <Text style={{ color: colorDark, marginRight: responsiveWidth(12), fontSize: responsiveFontSize(1.6),  marginBottom: responsiveHeight(0.3), fontFamily : fontFamily }}>{EventDate}</Text>
         <Text style={{ color: colorDark, marginRight: responsiveWidth(12), fontSize: responsiveFontSize(1.4), marginBottom: responsiveHeight(0.5), fontFamily : fontFamily }}>Posted By</Text>
-        <Text style={{ color: color, marginRight: responsiveWidth(12), fontSize: responsiveFontSize(1.8), fontFamily : fontFamily}}>{CompanyName}</Text>
-       </View>
+        <Text style={{ color: color, marginRight: responsiveWidth(12), fontSize: responsiveFontSize(1.8), fontFamily : fontFamily, marginBottom: responsiveWidth(3)}}>{CompanyName}</Text>
+       </BlurView>
     </Card>
   )
 }
@@ -41,7 +44,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: responsiveWidth(4),
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     height: 'auto',
     minHeight: 'auto',
    

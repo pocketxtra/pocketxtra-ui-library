@@ -12,7 +12,10 @@ export interface OrgEventInfoCardInterface{
     CompanyName?: string,
     borderRadius?: number,
     fontSize?: number
-    imageSource?: ImageSource
+    imageSource?: ImageSource,
+    DesTextSize?: number,
+    EventName?: string,
+    EventColor?: string
 }
 
 interface ImageSource {
