@@ -6,6 +6,7 @@ import {
   responsiveWidth,
   responsiveFontSize
 } from "react-native-responsive-dimensions";
+import { BlurView } from 'expo-blur';
 import { OrgEventInfoCardInterface } from '../../interface/cards/TempInterface';
 
 export const OrgEventInfoCard: React.FC<OrgEventInfoCardInterface> = ({
@@ -18,11 +19,14 @@ export const OrgEventInfoCard: React.FC<OrgEventInfoCardInterface> = ({
   color = '#fff',
   height =40,
   width = 100,
-  EventStatus = "UpComming",
+  EventStatus = "",
   CompanyName = "Jio India",
   borderRadius = 10,
   fontSize = 1.7,
-  imageSource = { uri: 'https://picsum.photos/700' }
+  imageSource = { uri: 'https://picsum.photos/700' },
+  DesTextSize = 2,
+  EventName = 'Slchd Concert',
+  EventColor = "#ccc",
 }) => {
   return (
     <Card style={{ width: responsiveWidth(width), height: responsiveHeight(height), borderRadius : responsiveWidth(borderRadius)}}>
@@ -32,33 +36,42 @@ export const OrgEventInfoCard: React.FC<OrgEventInfoCardInterface> = ({
         <Text style={[styles.dateText, {color: color, fontFamily: fontFamily, marginLeft: responsiveWidth(2),}]}>{EventDate}</Text>
       </View>
       
-      <View style={styles.infoSection}>
+      <BlurView style={[styles.infoSection, {borderRadius: responsiveWidth(3), overflow: "hidden", flex: 1,}]} intensity={30} tint="dark">
+      
         <Text style={{ color: color, marginRight: responsiveWidth(2), marginLeft: responsiveWidth(2),  fontFamily: fontFamily, fontSize: responsiveFontSize(fontSize) }}>{EventLocation}</Text>
         <Text style={{ color: color, marginRight: responsiveWidth(2),  fontFamily: fontFamily , fontSize: responsiveFontSize(fontSize)}}>{Category}</Text>
         <Text style={{ color: color, marginRight: responsiveWidth(2),  fontFamily: fontFamily, fontSize: responsiveFontSize(fontSize) }}>{Company}</Text>
-      </View>
-      
-      <View style={[styles.cardContent,EventStatus === "UpComming"
-    ? {
-        borderBottomLeftRadius: responsiveWidth(2),
-        borderBottomRightRadius: responsiveWidth(2),
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      }
-    : {
-        borderBottomLeftRadius: responsiveWidth(2),
-        borderBottomRightRadius: responsiveWidth(2)
-      }]}>
-        <Text variant="bodySmall" style={{ color: 'white', fontFamily: fontFamily }}>{Eventdes}</Text>
+       
+      </BlurView>
+
         {
           EventStatus === "UpComming" ? (
+            <BlurView style={[styles.cardContent, { borderBottomLeftRadius : responsiveWidth(3), 
+              borderBottomRightRadius: responsiveWidth(3), 
+              overflow: "hidden",  
+              flex: 1,  } ]}  intensity={20} tint="dark"> 
+              <Text style={{ color: EventColor, fontFamily: fontFamily, fontSize: responsiveFontSize(3), marginBottom : responsiveHeight(1.5), fontWeight: 700 }}>{EventName}</Text>
+            <Text style={{ color: 'white', fontFamily: fontFamily, fontSize: responsiveFontSize(DesTextSize) }}>{Eventdes}</Text>
             <View style={styles.Posted}>
-            <Text style={{ color: color, marginRight: responsiveWidth(2),  fontFamily: fontFamily, fontSize: responsiveFontSize(1.6), }}>Posted By</Text>
-            <Text style={{ color: color, marginRight: responsiveWidth(2),  fontFamily: fontFamily , fontSize: responsiveFontSize(1.8)}}>{CompanyName}</Text>
+            <Text style={{ color: EventColor, marginRight: responsiveWidth(6),  fontFamily: fontFamily, fontSize: responsiveFontSize(1.4), }}>Posted By</Text>
+            <Text style={{ color: color, marginRight: responsiveWidth(6),  fontFamily: fontFamily , fontSize: responsiveFontSize(1.8)}}>{CompanyName}</Text>
           </View>
-        
-          ): null
+          </BlurView>
+          ) :  (
+            <View style={[styles.cardContent]}>
+               {/* <Text style={{ color: EventColor, fontFamily: fontFamily, fontSize: responsiveFontSize(3), marginBottom : responsiveHeight(1.5) }}>{EventName}</Text> */}
+             
+             <Text style={{ color: color, fontFamily: fontFamily, fontSize: responsiveFontSize(DesTextSize) }}>{Eventdes}</Text>
+            
+            </View>
+          ) 
+
         }
-        </View>
+        
+       
+
+      
+       
 
     </Card>
   );
@@ -80,8 +93,6 @@ const styles = StyleSheet.create({
     right: responsiveWidth(2),
     flexDirection: 'row',
     alignItems: 'flex-end',
-    backgroundColor: 'rgba(0,0,0, 0.50)',
-    borderRadius: responsiveWidth(10),
     padding: 5,
     justifyContent: 'space-around',
   },
