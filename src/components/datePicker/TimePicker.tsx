@@ -72,6 +72,7 @@ export const TimePicker: React.FC<TimePickerInterface & { onChangeTime: (text: s
                     width: responsiveWidth(width),
                     fontSize:responsiveFontSize(fontSize),
                     height:responsiveWidth(height),
+                    justifyContent:'center',
                     textAlign:'center',
                 }}
                 activeOutlineColor={activeOutlineColor}
@@ -87,7 +88,7 @@ export const TimePicker: React.FC<TimePickerInterface & { onChangeTime: (text: s
                 outlineStyle={{ borderRadius: responsiveWidth(borderRadius) }}
                 value={text}
                 disabled={true}
-                right={<TextInput.Icon icon={(props) => <Icon name="calendar-month" color={iconColor} size={responsiveWidth(8)} onPress={showTimePicker}/>} />}
+                right={<TextInput.Icon icon={(props) => <Icon name="clock-time-three-outline" color={iconColor} size={responsiveWidth(8)} onPress={showTimePicker}/>} style={{marginTop:responsiveWidth(3)}}/>}
             />
             {error && errorMessage && (
                 <HelperText type="error" style={{marginLeft:responsiveWidth(3),color:"#F42D2D"}}>{errorMessage}</HelperText>
