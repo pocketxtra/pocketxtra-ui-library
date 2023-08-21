@@ -9,16 +9,16 @@ import {
 import { BlurView } from 'expo-blur';
 import { DashBoardInfoCardInterface } from '../../interface/cards/DashBoardInfoCardInterface';
 
-export const DashBaordInfoCard: React.FC<DashBoardInfoCardInterface> =({
+export const DashBaordUpcommingEventCard: React.FC<DashBoardInfoCardInterface> =({
   width = 50,
   height = 40,
-  EventName = "Event One",
-  color= "#fff",
-  EventDate = "24 Oct 2023",
-  CompanyName = "Jio India",
-  colorDark = '#ADADAD',
+  EventName = "",
+  color= "",
+  EventDate = "",
+  CompanyName = "",
+  colorDark = '',
   borderRadius = 8,
-  imageSource = { uri: 'https://picsum.photos/700' },
+  imageSource = { uri: '' },
   fontFamily = 'Nunito'
 }) => {
   return(
