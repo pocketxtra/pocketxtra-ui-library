@@ -1,2 +1,2 @@
-export {ExpandableInput} from './ExpandableInput';
+export {ExpandableWithInputs} from './ExpandableWithInputs';
 export {ExpandableWithSelection} from './ExpandableWithSelection'
