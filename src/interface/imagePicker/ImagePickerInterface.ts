@@ -3,4 +3,5 @@ export interface ImagePickerInterface{
     width?:number,
     height?:number,
     borderRadius?:number,
+    iconColor?:string,
 }

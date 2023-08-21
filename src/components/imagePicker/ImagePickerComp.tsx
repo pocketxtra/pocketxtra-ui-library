@@ -19,6 +19,7 @@ export const ImagePickerComp: React.FC<ImagePickerInterface & { onChangeImage: (
     width= 40,
     height= 40,
     borderRadius= 10,
+    iconColor="#fff",
     onChangeImage = () => { },
 }) => {
 
@@ -159,10 +160,10 @@ export const ImagePickerComp: React.FC<ImagePickerInterface & { onChangeImage: (
                                 <Image source={{ uri: image }} style={{ flex: 1 }} resizeMode="contain" />
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-around',alignItems:'center', flex:0.2}}>
                                     <Pressable onPress={retakePicture} style={{ alignItems: 'center', paddingBottom: responsiveWidth(5) }}>
-                                        <RetakeIcon name="camera-retake" size={responsiveWidth(15)} color={"#000000"} />
+                                        <RetakeIcon name="camera-retake" size={responsiveWidth(15)} color={iconColor} />
                                     </Pressable>
                                     <Pressable onPress={submitImage} style={{ alignItems: 'center', paddingBottom: responsiveWidth(5) }}>
-                                        <NextIcon name="arrow-alt-circle-right" size={responsiveWidth(13)} color={"#000000"} />
+                                        <NextIcon name="arrow-alt-circle-right" size={responsiveWidth(13)} color={iconColor} />
                                     </Pressable>
                                 </View>
                             </View>
@@ -171,10 +172,10 @@ export const ImagePickerComp: React.FC<ImagePickerInterface & { onChangeImage: (
                         {showCamera && (
                             <View style={{ flex: 0.2, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center' }}>
                                 <Pressable onPress={toggleCameraType}>
-                                    <CameraIcon name="flip-camera-ios" size={responsiveWidth(15)} color={"#000000"} />
+                                    <CameraIcon name="flip-camera-ios" size={responsiveWidth(15)} color={iconColor} />
                                 </Pressable>
                                 <Pressable onPress={clickPicture}>
-                                    <CameraIcon name="camera" size={responsiveWidth(15)} color={"#000000"} />
+                                    <CameraIcon name="camera" size={responsiveWidth(15)} color={iconColor} />
                                 </Pressable>
                             </View>
                         )}
