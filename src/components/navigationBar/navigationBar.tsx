@@ -13,11 +13,16 @@ export const NavigationBar : React.FC<navigationBarInterface> = ({
   tabBarStyle,
   tabBarActiveTintColor = '#B0E50E',
   tabBarInactiveTintColor = 'gray',
+  backgroundColor = 'red',
 }) => {
 
   const mergedTabBarStyle = StyleSheet.compose(
     styles.defaultTabBarStyle,
-    tabBarStyle
+    tabBarStyle,
+    {
+      backgroundColor: backgroundColor,
+    }
+    
   );
 
   return (
@@ -73,17 +78,16 @@ export const NavigationBar : React.FC<navigationBarInterface> = ({
 const styles = StyleSheet.create({
   defaultTabBarStyle: {
     borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopRightRadius: 50,
     paddingBottom: 20,
     paddingTop: 20,
-    height: 90,
     ...Platform.select({
       ios: {
-        backgroundColor: '#101318',
+        // backgroundColor: '#101318',
       },
       android: {
         elevation: 8,
-        backgroundColor: '#101318',
+        // backgroundColor: '#101318',
       },
     }),
   },

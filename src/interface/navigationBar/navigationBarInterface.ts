@@ -1,15 +1,15 @@
 export interface navigationBarInterface {
-    tabScreens: TabScreen[];
+    tabScreens?: TabScreen[];
     tabBarStyle?: TabBarStyle; 
     tabBarActiveTintColor?: string;
     tabBarInactiveTintColor?: string;
-
+    height?: number,
+    backgroundColor: string;
 }
 
-
 interface TabScreen {
-    name: string;
-    component: React.FC;
+    name?: string;
+    component?: React.FC;
     icon: string;
     options?: {
         tabBarLabel?: () => null;
