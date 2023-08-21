@@ -1,2 +1,2 @@
-export {ImagePickerComp} from './ImagePickerComp'
+export {ImagePickerComponent} from './ImagePickerComponent'
 

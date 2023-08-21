@@ -9,12 +9,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import CameraIcon from 'react-native-vector-icons/MaterialIcons';
 import NextIcon from 'react-native-vector-icons/FontAwesome5';
 import RetakeIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { ImagePickerInterface } from '../../interface/imagePicker/ImagePickerInterface';
+import { ImagePickerComponentInterface } from '../../interface/imagePicker/ImagePickerComponentInterface';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera } from 'expo-camera';
-import { Dialog, Portal, Text as TextPaper, Provider } from 'react-native-paper';
 
-export const ImagePickerComp: React.FC<ImagePickerInterface & { onChangeImage: (text: string) => void }> = ({
+export const ImagePickerComponent : React.FC<ImagePickerComponentInterface & { onChangeImage: (text: string) => void }> = ({
     type = "gallary",
     width= 40,
     height= 40,
