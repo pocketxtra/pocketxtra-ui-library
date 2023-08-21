@@ -1,5 +1,5 @@
-export {OrgEventInfoCard} from './CardComponentTemp';
-export {DashBaordInfoCard} from './DashBoardInfoCard'
+export {EditAndUpCommingEventCard} from './EditAndUpCommingEventCard';
+export {DashBaordUpcommingEventCard} from './DashBaordUpcommingEventCard'
 
 
 

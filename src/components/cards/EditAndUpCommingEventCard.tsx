@@ -9,24 +9,24 @@ import {
 import { BlurView } from 'expo-blur';
 import { OrgEventInfoCardInterface } from '../../interface/cards/TempInterface';
 
-export const OrgEventInfoCard: React.FC<OrgEventInfoCardInterface> = ({
-  EventDate = "24 Jun 2023 - 28 Jun 2023",
-  EventLocation = "Delhi",
-  Category= "Concert",
-  Company = "Jio Delhi",
+export const EditAndUpCommingEventCard: React.FC<OrgEventInfoCardInterface> = ({
+  EventDate = "",
+  EventLocation = "",
+  Category= "",
+  Company = "",
   Eventdes= '',
-  fontFamily = 'Poppins',
+  fontFamily = 'Nunito',
   color = '#fff',
-  height =40,
+  height = 40,
   width = 100,
   EventStatus = "",
-  CompanyName = "Jio India",
+  CompanyName = "",
   borderRadius = 10,
   fontSize = 1.7,
-  imageSource = { uri: 'https://picsum.photos/700' },
+  imageSource = { uri: '' },
   DesTextSize = 2,
-  EventName = 'Slchd Concert',
-  EventColor = "#ccc",
+  EventName = '',
+  EventColor = "",
 }) => {
   return (
     <Card style={{ width: responsiveWidth(width), height: responsiveHeight(height), borderRadius : responsiveWidth(borderRadius)}}>
@@ -59,7 +59,6 @@ export const OrgEventInfoCard: React.FC<OrgEventInfoCardInterface> = ({
           </BlurView>
           ) :  (
             <View style={[styles.cardContent]}>
-               {/* <Text style={{ color: EventColor, fontFamily: fontFamily, fontSize: responsiveFontSize(3), marginBottom : responsiveHeight(1.5) }}>{EventName}</Text> */}
              
              <Text style={{ color: color, fontFamily: fontFamily, fontSize: responsiveFontSize(DesTextSize) }}>{Eventdes}</Text>
             
@@ -67,11 +66,6 @@ export const OrgEventInfoCard: React.FC<OrgEventInfoCardInterface> = ({
           ) 
 
         }
-        
-       
-
-      
-       
 
     </Card>
   );
