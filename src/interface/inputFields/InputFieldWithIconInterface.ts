@@ -1,4 +1,4 @@
-export interface InputFieldCustomIconInterface {
+export interface InputFieldWithIconInterface {
     placeHolder?: string,
     backgroundColor?: string,
     mode?: string,

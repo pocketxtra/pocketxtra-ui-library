@@ -5,9 +5,9 @@ import {
 } from "react-native-responsive-dimensions";
 import { HelperText, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
-import { InputFieldCustomIconInterface } from '../../interface/inputFields/InputFieldCustomIconInterface';
+import { InputFieldWithIconInterface } from '../../interface/inputFields/InputFieldWithIconInterface';
 
-export const InputFieldCustomIcon : React.FC<InputFieldCustomIconInterface & { onChangeText: (text: string) => void }> = ({
+export const InputFieldWithIcon : React.FC<InputFieldWithIconInterface & { onChangeText: (text: string) => void }> = ({
     placeHolder = "Payment Source",
     backgroundColor = "#3D3E41",
     mode = "outlined",
