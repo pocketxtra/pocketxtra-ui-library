@@ -25,7 +25,7 @@ export const EditAndUpcomingEventCard: React.FC<EditAndUpcomingEventCardInterfac
   borderRadius = 10,
   fontSize = 2,
   imageSource = { uri: 'https://picsum.photos/700' },
-  descriptionTextSize = 2,
+  descriptionFontSize = 2,
   eventName = '',
   eventTextColor = Colors.textColor,
   eventDateFontSize = 2,
@@ -111,7 +111,7 @@ export const EditAndUpcomingEventCard: React.FC<EditAndUpcomingEventCardInterfac
               {eventName}</Text>
             <Text style={{
               color: eventTextColor,
-              fontSize: responsiveFontSize(descriptionTextSize)
+              fontSize: responsiveFontSize(descriptionFontSize)
             }}>{eventDescription}
             </Text>
             <View style={styles.Posted}>
@@ -140,7 +140,7 @@ export const EditAndUpcomingEventCard: React.FC<EditAndUpcomingEventCardInterfac
             <Text
               style={{
                 color: textColor,
-                fontSize: responsiveFontSize(descriptionTextSize)
+                fontSize: responsiveFontSize(descriptionFontSize)
               }}>{eventDescription}
             </Text>
           </View>
