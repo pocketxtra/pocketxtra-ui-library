@@ -1,4 +1,4 @@
-export interface DashBaordUpcommingEventCardInterface{
+export interface DashboardUpcomingEventCardInterface{
     width?: number,
     height?: number,
     eventName?: string,

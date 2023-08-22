@@ -1,4 +1,4 @@
-export interface EditAndUpCommingEventCardInterface{
+export interface EditAndUpcomingEventCardInterface{
     eventDate?: string,
     eventLocation?: string,
     category?: string,
