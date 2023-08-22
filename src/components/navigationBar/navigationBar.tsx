@@ -1,19 +1,24 @@
 import * as React from "react";
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize,
+} from "react-native-responsive-dimensions";
 import { Text, View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { navigationBarInterface } from "../../interface/navigationBar/navigationBarInterface";
-
+import { NavigationBarInterface } from "../../interface/navigationBar/NavigationBarInterface";
+import {Colors} from '../../theme/ColorsConstant'
 const Tab = createBottomTabNavigator();
 
-export const NavigationBar: React.FC<navigationBarInterface> = ({
+export const NavigationBar: React.FC<NavigationBarInterface> = ({
   tabScreens,
   tabBarStyle,
-  tabBarActiveTintColor = '#B0E50E',
-  tabBarInactiveTintColor = '#ccc',
-  iconColor = '#B0E50E',
-  createIconSize =50
+  tabBarActiveTintColor = Colors.activeOutlineColor,
+  tabBarInactiveTintColor = Colors.outlineColor,
+  iconColor = Colors.iconColor,
+  createIconSize = 20
 }) => {
   const mergedTabBarStyle = StyleSheet.compose(
     styles.defaultTabBarStyle,
@@ -42,7 +47,7 @@ export const NavigationBar: React.FC<navigationBarInterface> = ({
                   <View>
                     <Ionicons
                       name={selectedTab.icon}
-                      size={createIconSize}
+                      size= {responsiveHeight(createIconSize)}
                       color= {iconColor}
                     />
                   </View>
@@ -77,10 +82,11 @@ export const NavigationBar: React.FC<navigationBarInterface> = ({
 
 const styles = StyleSheet.create({
   defaultTabBarStyle: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 50,
-    paddingBottom: 20,
-    paddingTop: 20,
-    backgroundColor: '#000'
+    borderTopLeftRadius: responsiveWidth(7),
+    borderTopRightRadius: responsiveWidth(7),
+    paddingBottom: responsiveWidth(5),
+    paddingTop: responsiveWidth(5),
+    backgroundColor: "#000",
+    height: responsiveWidth(30)
   },
 });
