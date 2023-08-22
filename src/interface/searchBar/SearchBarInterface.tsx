@@ -10,7 +10,9 @@ export interface SearchBarInterface {
     error?: boolean,
     errorMessage?: string,
     fontSize?: number,
-    iconColor ?: string,
-    disabled?:boolean,
-    inProgress?:boolean,
+    iconColor?: string,
+    disabled?: boolean,
+    inProgress?: boolean,
+    errorColor?: string,
+    iconSize?:number,
 }

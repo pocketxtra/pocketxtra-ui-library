@@ -6,41 +6,44 @@ import {
 import { HelperText, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { SearchBarInterface } from '../../interface/searchBar/SearchBarInterface';
+import { Colors } from "../../theme/ColorsConstant"
 
-export const SearchBar : React.FC<SearchBarInterface & { onChangeText: (text: string) => void }> = ({
-    placeHolder = "Search here",
-    backgroundColor = "#1F242E",
+export const SearchBar: React.FC<SearchBarInterface & { onChangeText: (text: string) => void }> = ({
+    placeHolder = "",
+    backgroundColor = Colors.backgroundColor,
     mode = "outlined",
-    width = 90,
-    activeOutlineColor = "#E4E4E4",
-    outlineColor = "#3D3E41",
-    textColor = "#687797",
+    width = 100,
+    activeOutlineColor = Colors.activeOutlineColor,
+    outlineColor = Colors.outlineColor,
+    textColor = Colors.textColor,
     borderRadius = 2,
     error = false,
-    errorMessage = '* Error: Payment Source is required',
-    fontSize=2,
-    iconColor = '#FFC727',
-    disabled=false,
-    inProgress=false,
-    onChangeText = () => {},
+    errorMessage = '',
+    fontSize = 2,
+    iconColor = Colors.iconColor,
+    disabled = false,
+    inProgress = false,
+    errorColor = Colors.errorColor,
+    iconSize=8,
+    onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>("");
     return (
         <>
             <TextInput
-                theme={{ colors: { onSurfaceVariant: '#E4E4E4' } }}
+                theme={{ colors: { onSurfaceVariant: textColor } }}
                 mode='outlined'
                 style={{
                     backgroundColor: backgroundColor,
                     alignSelf: 'center',
                     width: responsiveWidth(width),
-                    fontSize:responsiveFontSize(fontSize)
+                    fontSize: responsiveFontSize(fontSize)
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
                 outlineColor={outlineColor}
                 textColor={textColor}
-                onChangeText={(text) => {setText(text);onChangeText(text)}}
+                onChangeText={(text) => { setText(text); onChangeText(text) }}
                 autoCapitalize="none"
                 blurOnSubmit={false}
                 keyboardType="default"
@@ -48,10 +51,10 @@ export const SearchBar : React.FC<SearchBarInterface & { onChangeText: (text: st
                 outlineStyle={{ borderRadius: responsiveWidth(borderRadius) }}
                 value={text}
                 disabled={disabled}
-                right={<TextInput.Icon icon={(props) => <Icon name={inProgress?"circle-o-notch":"search"} color={iconColor} size={responsiveWidth(8)}/>} />}
+                right={<TextInput.Icon icon={(props) => <Icon name={inProgress ? "circle-o-notch" : "search"} color={iconColor} size={responsiveWidth(iconSize)} />} />}
             />
             {error && errorMessage && (
-                <HelperText type="error" style={{marginLeft:responsiveWidth(3),color:"#F42D2D"}}>{errorMessage}</HelperText>
+                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>
             )}
         </>
     );
