@@ -1,1 +1,1 @@
-import {ProgressBarComponentComponent} from "./ProgressBar"
+import {ProgressBarComponent} from "./ProgressBar"

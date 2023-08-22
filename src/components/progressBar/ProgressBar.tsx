@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { View, Text} from 'react-native';
-import { ProgressBarComponentProps } from '../../interface/ProgressbarInterface/ProgressBar';
-import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
-
+import React, {useState} from 'react';
+import {View, Text} from 'react-native';
+import {ProgressBarComponentInterface } from '../../interface/ProgressbarInterface/ProgressBar';
+import {responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 import Slider from '@react-native-community/slider';
+import {Colors} from "../../theme/ColorsConstant"
 
 
-export const ProgressBarComponentComponent:React.FC<ProgressBarComponentProps> = ({
+export const ProgressBarComponent:React.FC<ProgressBarComponentInterface> = ({
 
   minimumValue ,
   maximumValue,
   step,
-  textColor,
-  textFontSize,
-  textMarginBottom,
+  textColor = Colors.textColor,
+  textFontSize = 2,
+  textMarginBottom = 2,
   sliderStyle,
   minimumTrackTintColor,
   maximumTrackTintColor
@@ -26,10 +26,10 @@ export const ProgressBarComponentComponent:React.FC<ProgressBarComponentProps> =
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{  color: textColor,fontSize: responsiveHeight(textFontSize?textFontSize : 3), marginBottom: responsiveHeight(textMarginBottom?textMarginBottom:2),}}>{value}</Text>
+    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{color: textColor,fontSize: responsiveHeight(textFontSize), marginBottom: responsiveHeight(textMarginBottom),}}>{value}</Text>
       <Slider
-        style={{ width: responsiveWidth(70) ,...sliderStyle }}
+        style={{ width: responsiveWidth(100) ,...sliderStyle }}
         value={value}
         minimumValue={minimumValue}
         maximumValue={maximumValue}
