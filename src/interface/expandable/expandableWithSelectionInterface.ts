@@ -1,8 +1,8 @@
-export interface expandableWithSelectionInterface{
-    Icon?: string,
-    IconInfo?: string,
+export interface ExpandableWithSelectionInterface{
+    icon?: string,
+    iconInfo?: string,
     title?: string,
-    expanablePara?: string,
+    expandableParagraph?: string,
     userRole?: string,
     successColor?: string,
     width?: number,
@@ -11,17 +11,21 @@ export interface expandableWithSelectionInterface{
     borderWidth?: number,
     backgroundColour?: string,
     fontSize?: number,
-    IconSize?: number,
-    IconColor?: string,
-    exTextSize?: number,
+    iconSize?: number,
+    iconColor?: string,
+    expandableTextSize?: number,
     textColor?: string,
     borderColor?: string,
-    exTextColor?: string
+    expandableTextColor?: string
     imageSource?: ImageSource,
-    fontFamily?: string
+    fontFamily?: string,
+    imgSize?: number,
+    buttonBgColor?: string,
+    buttonTextColor?: string,
+    infoIconColor?: string,
 }
 
 interface ImageSource {
     uri?: string; 
     path?: string; 
-  }
+}

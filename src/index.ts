@@ -1,1 +1,1 @@
-import './components/expandable/index' // import all buttons component here to the entry point for the npm package
+import './components/expandable/index' 

@@ -1,5 +1,5 @@
-export interface expandableInputInterface{
-    Icon?: string,
+export interface ExpandableInputInterface{
+    icon?: string,
     title?: string,
     width?: number,
     height?: number,
@@ -7,10 +7,9 @@ export interface expandableInputInterface{
     borderRadius?: number,
     borderWidth?: number,
     borderColor?: string,
-    IconColor?: string,
+    iconColor?: string,
     textColor?: string,
     textSize?: number,
-    IconSize?: number,
+    iconSize?: number,
     fontFamily?: string
-    
 }
