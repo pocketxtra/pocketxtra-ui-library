@@ -28,7 +28,8 @@ export const EditAndUpcomingEventCard: React.FC<EditAndUpcomingEventCardInterfac
   descriptionTextSize = 2,
   eventName = '',
   eventTextColor = Colors.textColor,
-  eventDateFontSize = 2
+  eventDateFontSize = 2,
+  blurSectionborderRadius = 3
 }) => {
   return (
     <Card
@@ -59,7 +60,7 @@ export const EditAndUpcomingEventCard: React.FC<EditAndUpcomingEventCardInterfac
       <BlurView
         style={[styles.infoSection,
         {
-          borderRadius: responsiveWidth(3),
+          borderRadius: responsiveWidth(blurSectionborderRadius),
           overflow: "hidden",
           flex: 1,
         }]}
