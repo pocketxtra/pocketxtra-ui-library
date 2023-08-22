@@ -1,4 +1,5 @@
-export { default as ContainedButton } from '../buttons/containedButton';
+export {EditAndUpcomingEventCard} from './EditAndUpcomingEventCard';
+export {DashboardUpcomingEventCard} from './DashboardUpcomingEventCard';
 
-// export all types of buttons here 
+
 

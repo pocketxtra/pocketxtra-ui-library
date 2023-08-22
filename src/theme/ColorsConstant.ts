@@ -1,8 +1,3 @@
-// Color constants for dark theme 
-
-
-
-
 export const Colors={
     "backgroundColor":"#000000",
     "borderColor":"#F5F5F5",
