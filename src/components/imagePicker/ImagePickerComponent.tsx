@@ -12,13 +12,16 @@ import RetakeIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ImagePickerComponentInterface } from '../../interface/imagePicker/ImagePickerComponentInterface';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera } from 'expo-camera';
+import {Colors} from "../../theme/ColorsConstant"
 
-export const ImagePickerComponent : React.FC<ImagePickerComponentInterface & { onChangeImage: (text: string) => void }> = ({
-    type = "gallary",
-    width= 40,
-    height= 40,
-    borderRadius= 10,
-    iconColor="#fff",
+export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { onChangeImage: (text: string) => void }> = ({
+    width = 40,
+    height = 40,
+    borderRadius = 10,
+    iconColor = Colors.iconColor,
+    backgroundColor=Colors.backgroundColor,
+    alertHeadingText="",
+    alertBodyText="",
     onChangeImage = () => { },
 }) => {
 
@@ -40,11 +43,11 @@ export const ImagePickerComponent : React.FC<ImagePickerComponentInterface & { o
         })();
     }, []);
 
-    useEffect(()=>{
-        if(image!==''){
+    useEffect(() => {
+        if (image !== '') {
             onChangeImage(image);
         }
-    },[image])
+    }, [image])
 
     const clickPicture = async () => {
         if (cameraRef) {
@@ -94,7 +97,7 @@ export const ImagePickerComponent : React.FC<ImagePickerComponentInterface & { o
         });
         delete result.cancelled;
         console.log(result);
-        
+
         if (!result.canceled) {
             setImage(result.assets[0].uri);
         }
@@ -102,8 +105,8 @@ export const ImagePickerComponent : React.FC<ImagePickerComponentInterface & { o
 
     const ChooseMethod = () => {
         Alert.alert(
-            'Please choose option',
-            'want to take selfie via camera or gallary?',
+            alertHeadingText,
+            alertBodyText,
             [
                 {
                     text: 'Camera',
@@ -131,7 +134,7 @@ export const ImagePickerComponent : React.FC<ImagePickerComponentInterface & { o
                             style={{
                                 width: responsiveWidth(width),
                                 height: responsiveWidth(height),
-                                backgroundColor: "#383838",
+                                backgroundColor: backgroundColor,
                                 borderRadius: responsiveWidth(borderRadius),
                                 alignSelf: 'center',
                                 justifyContent: 'center'
@@ -141,7 +144,7 @@ export const ImagePickerComponent : React.FC<ImagePickerComponentInterface & { o
                                 <Image source={{ uri: image }} style={{ width: '100%', height: '100%', borderRadius: responsiveWidth(borderRadius) }} />
                                 :
                                 <View style={{ alignSelf: 'center' }}>
-                                    <Icon name="image" size={responsiveWidth(30)} color={"#000000"} />
+                                    <Icon name="image" size={responsiveWidth(30)} color={iconColor} />
                                 </View>
                             }
                         </View>
@@ -157,7 +160,7 @@ export const ImagePickerComponent : React.FC<ImagePickerComponentInterface & { o
                         ) : (
                             <View style={{ flex: 1 }}>
                                 <Image source={{ uri: image }} style={{ flex: 1 }} resizeMode="contain" />
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-around',alignItems:'center', flex:0.2}}>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', flex: 0.2 }}>
                                     <Pressable onPress={retakePicture} style={{ alignItems: 'center', paddingBottom: responsiveWidth(5) }}>
                                         <RetakeIcon name="camera-retake" size={responsiveWidth(15)} color={iconColor} />
                                     </Pressable>
