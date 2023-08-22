@@ -10,7 +10,6 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { TimePickerInterface } from '../../interface/datePicker/TimePickerInterface';
 import { Colors } from '../../theme/ColorsConstant';
 
-
 export const TimePicker: React.FC<TimePickerInterface & { onChangeTime: (text: string) => void }> = ({
     placeHolder = "",
     backgroundColor = Colors.backgroundColor,
@@ -62,7 +61,6 @@ export const TimePicker: React.FC<TimePickerInterface & { onChangeTime: (text: s
             onChangeTime(PickedTime)
         }
     }, [PickedTime])
-
 
     return (
         <>

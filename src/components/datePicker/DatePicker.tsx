@@ -10,7 +10,6 @@ import { DatePickerInterface } from '../../interface/datePicker/DatePickerInterf
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { Colors } from '../../theme/ColorsConstant';
 
-
 export const DatePicker: React.FC<DatePickerInterface & { onChangeDate: (text: string) => void }> = ({
     placeHolder = "",
     backgroundColor = Colors.backgroundColor,
@@ -56,7 +55,6 @@ export const DatePicker: React.FC<DatePickerInterface & { onChangeDate: (text: s
             onChangeDate(PickedDate)
         }
     }, [PickedDate])
-
 
     return (
         <>
