@@ -2,18 +2,19 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import { responsiveHeight , responsiveWidth } from 'react-native-responsive-dimensions';
-import { RadioButtonComponentProps } from '../../interface/RadioButton/RadioButtonInterface';
+import { RadioButtonComponentInterface } from '../../interface/RadioButton/RadioButtonInterface';
 
-export const CustomRadioButtonComponent: React.FC<RadioButtonComponentProps> = ({
+export const CustomRadioButtonComponent: React.FC<RadioButtonComponentInterface> = ({
   options,
   checkedColor,
   uncheckedColor,
+  marginVertical = 2,
   containerStyle = {},
-  fontWeight,
-  textfontSize,
+  textfontSize = 2,
   title,
-  textPadding,
-  direction  
+  fontWeight,
+  direction ,
+  textPadding = 1, 
 }) => {
   const [checked, setChecked] = React.useState<string>('');
 
@@ -30,7 +31,7 @@ export const CustomRadioButtonComponent: React.FC<RadioButtonComponentProps> = (
           fontSize: responsiveHeight(textfontSize?textfontSize:2),
           fontWeight,
           textAlign: 'center',
-          padding : responsiveWidth(textPadding?textPadding:1),
+          padding : responsiveWidth(textPadding),
           alignSelf: 'flex-start'
         }}
       >
@@ -45,15 +46,15 @@ export const CustomRadioButtonComponent: React.FC<RadioButtonComponentProps> = (
           style={{
             alignItems: 'center',
             flexDirection: 'row',
-            marginVertical: 5,
+            marginVertical: responsiveWidth(marginVertical),
           }}
         >
 
           <RadioButton
             value={option.value}
             onPress={() => setChecked(option.value)}
-            color={checkedColor?checkedColor:"blue"}
-            uncheckedColor={uncheckedColor?uncheckedColor:"gray"}
+            color={checkedColor}
+            uncheckedColor={uncheckedColor}
             status={checked === option.value ? 'checked' : 'unchecked'}
           />
           <Text >{option.label}</Text>

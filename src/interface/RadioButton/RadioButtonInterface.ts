@@ -1,18 +1,19 @@
 
-interface Option {
-    label: string;
-    value: string;
-  }
-   export interface RadioButtonComponentProps {
+ 
+   export interface RadioButtonComponentInterface {
     options?: Option[];
     checkedColor?: string;
     uncheckedColor?: string;
-    status?: string
+    marginVertical?:number,
     containerStyle?: any;
     textfontSize?: number;
     title?: string;
-    marginBottom?: number;
     fontWeight?: string 
     direction?: string 
-    textPadding ?: number
+    textPadding?: number
+  }
+
+  interface Option {
+    label: string;
+    value: string;
   }
