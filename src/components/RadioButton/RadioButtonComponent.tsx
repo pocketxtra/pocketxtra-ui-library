@@ -10,16 +10,16 @@ export const CustomRadioButtonComponent: React.FC<RadioButtonComponentInterface>
   uncheckedColor,
   marginVertical = 2,
   containerStyle = {},
-  textfontSize = 2,
+  textFontSize= 2,
   title,
   fontWeight,
-  direction ,
+  flexDirections,
   textPadding = 1, 
 }) => {
   const [checked, setChecked] = React.useState<string>('');
 
   const optionContainerStyle =
-    direction === 'row'
+  flexDirections === 'row'
       ? { flexDirection: 'row' , justifyContent: 'space-between'  }
       : { flexDirection: 'column' };
 
@@ -28,7 +28,7 @@ export const CustomRadioButtonComponent: React.FC<RadioButtonComponentInterface>
     {title && (
       <Text
         style={{
-          fontSize: responsiveHeight(textfontSize?textfontSize:2),
+          fontSize: responsiveHeight(textFontSize),
           fontWeight,
           textAlign: 'center',
           padding : responsiveWidth(textPadding),
