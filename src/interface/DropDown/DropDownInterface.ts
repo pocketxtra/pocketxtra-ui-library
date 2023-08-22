@@ -1,15 +1,15 @@
  interface DropdownOption {
   name: string;
 }
- export interface DropDownProps {
+ export interface DropDownInterface {
   height?: number;
   width?: number;
   backgroundColor?: string;
   borderRadius?: number;
-  Coordinators?: DropdownOption[];
+  options?: DropdownOption[];
   selectedLabel?: string;
-  margin?:number,
-  textColor : string,
-  iconColor : string,
-  iconsize : number
+  optionsMargin?:number,
+  textColor?: string,
+  iconColor?: string,
+  iconSize?: number
 }
