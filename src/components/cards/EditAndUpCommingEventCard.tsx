@@ -7,66 +7,143 @@ import {
   responsiveFontSize
 } from "react-native-responsive-dimensions";
 import { BlurView } from 'expo-blur';
-import { OrgEventInfoCardInterface } from '../../interface/cards/TempInterface';
+import { EditAndUpCommingEventCardInterface } from '../../interface/cards/EditAndUpCommingEventCardInterface';
+import { Colors} from '../theme/theme'
 
-export const EditAndUpCommingEventCard: React.FC<OrgEventInfoCardInterface> = ({
-  EventDate = "",
-  EventLocation = "",
-  Category= "",
-  Company = "",
-  Eventdes= '',
-  fontFamily = 'Nunito',
-  color = '#fff',
+export const EditAndUpCommingEventCard: React.FC<EditAndUpCommingEventCardInterface> = ({
+  eventDate = '',
+  eventLocation = '',
+  category = '',
+  company = '',
+  eventDescription = '',
+  textColor = Colors.textColor,
   height = 40,
   width = 100,
-  EventStatus = "",
-  CompanyName = "",
+  eventStatus = '',
+  companyName = '',
   borderRadius = 10,
-  fontSize = 1.7,
-  imageSource = { uri: '' },
-  DesTextSize = 2,
-  EventName = '',
-  EventColor = "",
+  fontSize = 2,
+  imageSource = { uri: 'https://picsum.photos/700' },
+  descriptionTextSize = 2,
+  eventName = '',
+  eventTextColor = Colors.textColor,
+  eventDateFontSize = 2
 }) => {
   return (
-    <Card style={{ width: responsiveWidth(width), height: responsiveHeight(height), borderRadius : responsiveWidth(borderRadius)}}>
-      <Card.Cover source={{ uri: imageSource.uri }} style={{ width: responsiveWidth(width), height: responsiveHeight(height)}}/>
-      
+    <Card
+      style={{
+        width: responsiveWidth(width),
+        height: responsiveHeight(height),
+        borderRadius: responsiveWidth(borderRadius)
+      }}>
+      <Card.Cover
+        source={{ uri: imageSource.uri }}
+        style={{
+          width: responsiveWidth(width),
+          height: responsiveHeight(height)
+        }} 
+        />
+
       <View style={styles.dateSection}>
-        <Text style={[styles.dateText, {color: color, fontFamily: fontFamily, marginLeft: responsiveWidth(2),}]}>{EventDate}</Text>
+        <Text
+          style={{
+             color: textColor, 
+             marginLeft: responsiveWidth(2),
+             fontSize: responsiveFontSize(eventDateFontSize)
+             }}>
+          {eventDate}
+        </Text>
       </View>
-      
-      <BlurView style={[styles.infoSection, {borderRadius: responsiveWidth(3), overflow: "hidden", flex: 1,}]} intensity={30} tint="dark">
-      
-        <Text style={{ color: color, marginRight: responsiveWidth(2), marginLeft: responsiveWidth(2),  fontFamily: fontFamily, fontSize: responsiveFontSize(fontSize) }}>{EventLocation}</Text>
-        <Text style={{ color: color, marginRight: responsiveWidth(2),  fontFamily: fontFamily , fontSize: responsiveFontSize(fontSize)}}>{Category}</Text>
-        <Text style={{ color: color, marginRight: responsiveWidth(2),  fontFamily: fontFamily, fontSize: responsiveFontSize(fontSize) }}>{Company}</Text>
-       
+
+      <BlurView
+        style={[styles.infoSection,
+        {
+          borderRadius: responsiveWidth(3),
+          overflow: "hidden",
+          flex: 1,
+        }]}
+        intensity={30}
+        tint="dark">
+        <Text
+          style={{
+            color: textColor,
+            marginRight: responsiveWidth(2),
+            marginLeft: responsiveWidth(2),
+            fontSize: responsiveFontSize(fontSize)
+          }}>
+          {eventLocation}
+        </Text>
+        <Text
+          style={{
+            color: textColor,
+            marginRight: responsiveWidth(2),
+            fontSize: responsiveFontSize(fontSize)
+          }}>
+          {category}
+        </Text>
+        <Text style={{
+          color: textColor,
+          marginRight: responsiveWidth(2),
+          fontSize: responsiveFontSize(fontSize)
+        }}>
+          {company}
+        </Text>
       </BlurView>
 
-        {
-          EventStatus === "UpComming" ? (
-            <BlurView style={[styles.cardContent, { borderBottomLeftRadius : responsiveWidth(3), 
-              borderBottomRightRadius: responsiveWidth(3), 
-              overflow: "hidden",  
-              flex: 1,  } ]}  intensity={20} tint="dark"> 
-              <Text style={{ color: EventColor, fontFamily: fontFamily, fontSize: responsiveFontSize(3), marginBottom : responsiveHeight(1.5), fontWeight: 700 }}>{EventName}</Text>
-            <Text style={{ color: 'white', fontFamily: fontFamily, fontSize: responsiveFontSize(DesTextSize) }}>{Eventdes}</Text>
+      {
+        eventStatus === "UpComming" ? (
+          <BlurView style={[styles.cardContent,
+          {
+            borderBottomLeftRadius: responsiveWidth(3),
+            borderBottomRightRadius: responsiveWidth(3),
+            overflow: "hidden",
+            flex: 1,
+          }]}
+            intensity={20}
+            tint="dark">
+            <Text style={{
+              color: eventTextColor,
+              fontSize: responsiveFontSize(3),
+              marginBottom: responsiveHeight(1.5),
+            }}>
+              {eventName}</Text>
+            <Text style={{
+              color: eventTextColor,
+              fontSize: responsiveFontSize(descriptionTextSize)
+            }}>{eventDescription}
+            </Text>
             <View style={styles.Posted}>
-            <Text style={{ color: EventColor, marginRight: responsiveWidth(6),  fontFamily: fontFamily, fontSize: responsiveFontSize(1.4), }}>Posted By</Text>
-            <Text style={{ color: color, marginRight: responsiveWidth(6),  fontFamily: fontFamily , fontSize: responsiveFontSize(1.8)}}>{CompanyName}</Text>
-          </View>
-          </BlurView>
-          ) :  (
-            <View style={[styles.cardContent]}>
-             
-             <Text style={{ color: color, fontFamily: fontFamily, fontSize: responsiveFontSize(DesTextSize) }}>{Eventdes}</Text>
-            
+              <Text style={{
+                color: eventTextColor,
+                marginRight: responsiveWidth(6),
+                fontSize: responsiveFontSize(1.4)
+              }}>
+                Posted By
+              </Text>
+              <Text
+                style={{
+                  color: textColor,
+                  marginRight: responsiveWidth(6),
+                  fontSize: responsiveFontSize(1.8)
+                }}>
+                {companyName}
+              </Text>
             </View>
-          ) 
-
-        }
-
+          </BlurView>
+        ) : (
+          <View
+            style={[
+              styles.cardContent
+            ]}>
+            <Text
+              style={{
+                color: textColor,
+                fontSize: responsiveFontSize(descriptionTextSize)
+              }}>{eventDescription}
+            </Text>
+          </View>
+        )
+      }
     </Card>
   );
 };
@@ -74,12 +151,7 @@ export const EditAndUpCommingEventCard: React.FC<OrgEventInfoCardInterface> = ({
 const styles = StyleSheet.create({
   dateSection: {
     position: 'absolute',
-    top: 15,
-
-  },
-  dateText: {
-    fontSize: responsiveFontSize(1.7),
-   
+    top: responsiveWidth(5),
   },
   infoSection: {
     position: 'absolute',
@@ -99,8 +171,8 @@ const styles = StyleSheet.create({
     height: 'auto',
     minHeight: 'auto',
   },
-  Posted:{
+  Posted: {
     alignItems: 'flex-end',
-    
   }
 });
+
