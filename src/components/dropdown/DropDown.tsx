@@ -8,16 +8,16 @@ import {Colors} from "../../theme/ColorsConstant"
 
 
 export const CustomDropDownComponent: React.FC<DropDownInterface> = ({
-  height,
+  height = 10,
   width = 100,
   backgroundColor =Colors.backgroundColor,
-  borderRadius,
+  borderRadius = 1,
   options,
   selectedLabel,
   optionsMargin = 0.1,
   textColor = Colors.textColor,
   iconColor = Colors.iconColor,
-  iconSize
+  iconSize = 2
   
 }) => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -36,14 +36,14 @@ export const CustomDropDownComponent: React.FC<DropDownInterface> = ({
     <View style={{ alignItems:"center"}}>
       <TouchableOpacity
         style={{
-          backgroundColor:backgroundColor?backgroundColor :"black",
+          backgroundColor:backgroundColor,
           justifyContent:"space-between",
           flexDirection:"row",
           alignItems:"center",
           padding:responsiveHeight(1),
-          height:responsiveHeight(height?height:10),
+          height:responsiveHeight(height),
           width:responsiveWidth(width),
-          borderRadius:responsiveHeight(borderRadius?borderRadius : 1),
+          borderRadius:responsiveHeight(borderRadius),
        
 
         }}
@@ -56,7 +56,7 @@ export const CustomDropDownComponent: React.FC<DropDownInterface> = ({
             color:iconColor,
           }}
           name="arrow-drop-down"
-          size={iconSize?iconSize:27}
+          size={responsiveWidth(iconSize)}
         />
       </TouchableOpacity>
       {showOptions && (
@@ -69,9 +69,9 @@ export const CustomDropDownComponent: React.FC<DropDownInterface> = ({
                 flexDirection : "row",
                 alignItems :"center",
                 padding: responsiveHeight(1),
-                height: responsiveHeight(height?height:10),
+                height: responsiveHeight(height),
                 width: responsiveWidth(width),
-                borderRadius: responsiveHeight(borderRadius?borderRadius:1),
+                borderRadius: responsiveHeight(borderRadius),
                 margin : responsiveWidth(optionsMargin)            
                 
       
