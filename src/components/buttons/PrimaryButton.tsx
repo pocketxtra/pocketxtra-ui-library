@@ -5,24 +5,20 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { TertiaryButtonInterface } from '../../interface/buttons/TertiaryButtonInterface';
-import {Colors} from "../../theme/ColorsConstant"
+import { PrimaryButtonInterface } from '../../interface/buttons/PrimaryButtonInterface';
+import {Colors} from '../../theme/ColorsConstant'
 
-export const TertiaryButton: React.FC<TertiaryButtonInterface & { onPress?: () => void }> = ({
+export const PrimaryButton : React.FC<PrimaryButtonInterface & { onPress?: () => void }> = ({
     title = "",
     buttonColor = Colors.backgroundColor,
-    height = 5,
+    height = 8,
     width = 100,
     fontSize = 2,
     color = Colors.textColor,
-    borderColor = Colors.borderColor,
-    borderRadius = 22,
-    borderWidth = 2,
-    icon = false,
-    sizeIcon=5,
-    onPress = () => {},
-    disabled=false,
+    borderColor=Colors.borderColor,
+    borderWidth=2,
+    borderRadius=22,
+    disabled=true,
     marginTopLabel=0,
     marginBottomLabel=0,
     marginLeftLabel=0,
@@ -34,14 +30,10 @@ export const TertiaryButton: React.FC<TertiaryButtonInterface & { onPress?: () =
     disabledColor=Colors.disabledTextColor,
     disabledButtonColor=Colors.disabledBackgroundColor,
     disabledBorderColor=Colors.disabledBorderColor,
-    disabledIconColor=Colors.disabledIconColor,
-    iconColor=Colors.iconColor,
+    onPress = () => {},
 }) => {
     return (
-        <Button mode="contained"
-            icon={icon ? ({ size, color }) => (
-                <Icon name="verified" size={responsiveWidth(sizeIcon)} color={disabled?disabledIconColor:iconColor} />
-            ) : undefined}
+        <Button mode="contained" 
             style={{
                 justifyContent: 'center',
                 alignSelf: 'center',
@@ -65,10 +57,10 @@ export const TertiaryButton: React.FC<TertiaryButtonInterface & { onPress?: () =
                 marginLeft:responsiveWidth(marginLeftLabel),
                 marginRight:responsiveWidth(marginRightLabel),
             }}
-            contentStyle={{ alignSelf: 'center',flexDirection:"row-reverse" }}
+            contentStyle={{ alignSelf: 'center' }}
             onPress={onPress}
             disabled={disabled}
-            >
+        >
             {title}
         </Button>
     );
