@@ -1,4 +1,2 @@
-export { default as ContainedButton } from '../buttons/containedButton';
-
-// export all types of buttons here 
-
+export {PrimaryButton} from "./PrimaryButton"
+export {TertiaryButton} from "./TertiaryButton"
