@@ -8,7 +8,8 @@ import {
 } from "react-native-responsive-dimensions";
 import { BlurView } from 'expo-blur';
 import { EditAndUpcomingEventCardInterface } from '../../interface/cards/EditAndUpcomingEventCardInterface';
-import { Colors} from '../theme/theme'
+import { Colors} from '../../theme/ColorsConstant';
+import {UPCOMING} from "../../constants/Constants"
 
 export const EditAndUpcomingEventCard: React.FC<EditAndUpcomingEventCardInterface> = ({
   eventDate = '',
@@ -91,7 +92,7 @@ export const EditAndUpcomingEventCard: React.FC<EditAndUpcomingEventCardInterfac
       </BlurView>
 
       {
-        eventStatus === "Upcoming" ? (
+        eventStatus === UPCOMING ? (
           <BlurView style={[styles.cardContent,
           {
             borderBottomLeftRadius: responsiveWidth(3),
