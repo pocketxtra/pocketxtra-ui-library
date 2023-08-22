@@ -26,10 +26,10 @@ export const ProgressBarComponent:React.FC<ProgressBarComponentInterface> = ({
   };
 
   return (
-    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{justifyContent: 'center', alignItems: 'center' }}>
       <Text style={{color: textColor,fontSize: responsiveHeight(textFontSize), marginBottom: responsiveHeight(textMarginBottom),}}>{value}</Text>
       <Slider
-        style={{ width: responsiveWidth(100) ,...sliderStyle }}
+        style={{width: responsiveWidth(100) ,...sliderStyle}}
         value={value}
         minimumValue={minimumValue}
         maximumValue={maximumValue}
