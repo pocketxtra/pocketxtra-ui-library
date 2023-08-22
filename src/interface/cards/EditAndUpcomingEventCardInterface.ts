@@ -15,7 +15,8 @@ export interface EditAndUpcomingEventCardInterface{
     eventName?: string,
     eventTextColor?: string,
     eventDescription?: string,
-    eventDateFontSize?: number
+    eventDateFontSize?: number,
+    blurSectionborderRadius?: number
 }
 
 interface ImageSource {
