@@ -1,4 +1,4 @@
-export interface TimePickerInterface{
+export interface TimePickerInterface {
     placeHolder?: string,
     backgroundColor?: string,
     mode?: string,
@@ -10,7 +10,9 @@ export interface TimePickerInterface{
     error?: boolean,
     errorMessage?: string,
     fontSize?: number,
-    iconColor ?: string,
-    disabled?:boolean,
-    height?:number,
+    iconColor?: string,
+    height?: number,
+    errorColor?: string,
+    iconSize?: number,
+    placeholderTextColor?: string,
 }

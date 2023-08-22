@@ -8,30 +8,33 @@ import { HelperText, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { DatePickerInterface } from '../../interface/datePicker/DatePickerInterface';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { Colors } from '../../theme/ColorsConstant';
 
 
 export const DatePicker: React.FC<DatePickerInterface & { onChangeDate: (text: string) => void }> = ({
-    placeHolder = "Date Picker",
-    backgroundColor = "#3D3E41",
+    placeHolder = "",
+    backgroundColor = Colors.backgroundColor,
     mode = "outlined",
-    width = 43,
+    width = 100,
     height = 15,
-    activeOutlineColor = "#E4E4E4",
-    outlineColor = "#3D3E41",
-    textColor = "#E4E4E4",
+    activeOutlineColor = Colors.activeOutlineColor,
+    outlineColor = Colors.outlineColor,
+    textColor = Colors.textColor,
     borderRadius = 2,
     error = false,
-    errorMessage = '* Error: Reporting Time is required',
+    errorMessage = '',
     fontSize = 2,
-    iconColor = '#FFC727',
-    disabled = true,
+    iconColor = Colors.iconColor,
+    errorColor = Colors.errorColor,
+    iconSize = 8,
+    placeholderTextColor = Colors.placeholderTextColor,
     onChangeDate = () => { },
 }) => {
 
-    const [text, setText]=useState('')
+    const [text, setText] = useState('')
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [PickedDate, setPickedDate] = useState("")
-    
+
     const showDatePicker = () => {
         setDatePickerVisibility(true);
     };
@@ -48,43 +51,43 @@ export const DatePicker: React.FC<DatePickerInterface & { onChangeDate: (text: s
         hideDatePicker();
     };
 
-    useEffect(()=>{
-        if(PickedDate!==""){
+    useEffect(() => {
+        if (PickedDate !== "") {
             onChangeDate(PickedDate)
         }
-    },[PickedDate])
+    }, [PickedDate])
 
 
     return (
         <>
             <TextInput
-                theme={{ colors: { onSurfaceVariant: '#E4E4E4' } }}
+                theme={{ colors: { onSurfaceVariant: textColor } }}
                 mode='outlined'
                 style={{
                     backgroundColor: backgroundColor,
                     alignSelf: 'center',
                     width: responsiveWidth(width),
-                    fontSize:responsiveFontSize(fontSize),
-                    height:responsiveWidth(height),
-                    textAlign:'center',
+                    fontSize: responsiveFontSize(fontSize),
+                    height: responsiveWidth(height),
+                    textAlign: 'center',
                 }}
                 placeholder={placeHolder}
                 activeOutlineColor={activeOutlineColor}
-                placeholderTextColor={disabled?"#fff":textColor}
+                placeholderTextColor={placeholderTextColor}
                 outlineColor={outlineColor}
-                textColor={disabled?"#fff":textColor}
-                onChangeText={(text) => {setText(text);onChangeText(text)}}
+                textColor={textColor}
+                onChangeText={(text) => { setText(text); onChangeText(text) }}
                 autoCapitalize="none"
                 blurOnSubmit={false}
                 keyboardType="default"
                 returnKeyType="done"
                 outlineStyle={{ borderRadius: responsiveWidth(borderRadius) }}
                 value={text}
-                disabled={disabled}
-                right={<TextInput.Icon icon={(props) => <Icon name="calendar-month" color={iconColor} size={responsiveWidth(8)} onPress={showDatePicker}/>} />}
+                disabled={true}
+                right={<TextInput.Icon icon={(props) => <Icon name="calendar-month" color={iconColor} size={responsiveWidth(iconSize)} onPress={showDatePicker} />} />}
             />
             {error && errorMessage && (
-                <HelperText type="error" style={{marginLeft:responsiveWidth(3),color:"#F42D2D"}}>{errorMessage}</HelperText>
+                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>
             )}
             <DateTimePickerModal
                 isVisible={isDatePickerVisible}

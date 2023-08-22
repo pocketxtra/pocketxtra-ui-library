@@ -8,30 +8,33 @@ import { HelperText, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { TimePickerInterface } from '../../interface/datePicker/TimePickerInterface';
+import { Colors } from '../../theme/ColorsConstant';
 
 
 export const TimePicker: React.FC<TimePickerInterface & { onChangeTime: (text: string) => void }> = ({
-    placeHolder = "Time Picker",
-    backgroundColor = "#3D3E41",
+    placeHolder = "",
+    backgroundColor = Colors.backgroundColor,
     mode = "outlined",
-    width = 43,
+    width = 100,
     height = 15,
-    activeOutlineColor = "#E4E4E4",
-    outlineColor = "#3D3E41",
-    textColor = "#E4E4E4",
+    activeOutlineColor = Colors.activeOutlineColor,
+    outlineColor = Colors.outlineColor,
+    textColor = Colors.textColor,
     borderRadius = 2,
     error = false,
-    errorMessage = '* Error: Reporting Time is required',
+    errorMessage = '',
     fontSize = 2,
-    iconColor = '#FFC727',
-    disabled = false,
+    iconColor = Colors.iconColor,
+    iconSize = 8,
+    errorColor = Colors.errorColor,
+    placeholderTextColor = Colors.placeholderTextColor,
     onChangeTime = () => { },
 }) => {
 
-    const [text, setText]=useState('')
+    const [text, setText] = useState('')
     const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
     const [PickedTime, setPickedTime] = useState("")
-    
+
     const showTimePicker = () => {
         setTimePickerVisibility(true);
     };
@@ -54,11 +57,11 @@ export const TimePicker: React.FC<TimePickerInterface & { onChangeTime: (text: s
         hideTimePicker();
     };
 
-    useEffect(()=>{
-        if(PickedTime!==""){
+    useEffect(() => {
+        if (PickedTime !== "") {
             onChangeTime(PickedTime)
         }
-    },[PickedTime])
+    }, [PickedTime])
 
 
     return (
@@ -70,17 +73,17 @@ export const TimePicker: React.FC<TimePickerInterface & { onChangeTime: (text: s
                     backgroundColor: backgroundColor,
                     alignSelf: 'center',
                     width: responsiveWidth(width),
-                    fontSize:responsiveFontSize(fontSize),
-                    height:responsiveWidth(height),
-                    justifyContent:'center',
-                    textAlign:'center',
+                    fontSize: responsiveFontSize(fontSize),
+                    height: responsiveWidth(height),
+                    justifyContent: 'center',
+                    textAlign: 'center',
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
-                placeholderTextColor={disabled?"#fff":textColor}
+                placeholderTextColor={placeholderTextColor}
                 outlineColor={outlineColor}
-                textColor={disabled?"#fff":textColor}
-                onChangeText={(text) => {setText(text);onChangeText(text)}}
+                textColor={textColor}
+                onChangeText={(text) => { setText(text); onChangeText(text) }}
                 autoCapitalize="none"
                 blurOnSubmit={false}
                 keyboardType="default"
@@ -88,10 +91,10 @@ export const TimePicker: React.FC<TimePickerInterface & { onChangeTime: (text: s
                 outlineStyle={{ borderRadius: responsiveWidth(borderRadius) }}
                 value={text}
                 disabled={true}
-                right={<TextInput.Icon icon={(props) => <Icon name="clock-time-three-outline" color={iconColor} size={responsiveWidth(8)} onPress={showTimePicker}/>} style={{marginTop:responsiveWidth(3)}}/>}
+                right={<TextInput.Icon icon={(props) => <Icon name="clock-time-three-outline" color={iconColor} size={responsiveWidth(iconSize)} onPress={showTimePicker} />} style={{ marginTop: responsiveWidth(3) }} />}
             />
             {error && errorMessage && (
-                <HelperText type="error" style={{marginLeft:responsiveWidth(3),color:"#F42D2D"}}>{errorMessage}</HelperText>
+                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>
             )}
             <DateTimePickerModal
                 isVisible={isTimePickerVisible}
