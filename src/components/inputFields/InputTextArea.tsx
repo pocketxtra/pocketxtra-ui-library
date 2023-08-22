@@ -8,7 +8,7 @@ import { HelperText, TextInput } from 'react-native-paper';
 import { InputTextAreaInterface } from '../../interface/inputFields/InputTextAreaInterface';
 
 export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (text: string) => void }> = ({
-    placeHolder = "Description",
+    placeHolder = "",
     backgroundColor = "#3D3E41",
     mode = "outlined",
     width = 90,

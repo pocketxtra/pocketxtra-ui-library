@@ -9,7 +9,7 @@ import { TextInputOutlinedInterface } from '../../interface/inputFields/TextInpu
 import { KeyboardTypeOptions } from 'react-native';
 
 export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChangeText: (text: string) => void }> = ({
-    placeHolder = "Input Text Box",
+    placeHolder = "",
     backgroundColor = "#3D3E41",
     mode = "outlined",
     width = 90,

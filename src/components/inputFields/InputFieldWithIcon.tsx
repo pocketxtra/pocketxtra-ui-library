@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import { InputFieldWithIconInterface } from '../../interface/inputFields/InputFieldWithIconInterface';
 
 export const InputFieldWithIcon : React.FC<InputFieldWithIconInterface & { onChangeText: (text: string) => void }> = ({
-    placeHolder = "Payment Source",
+    placeHolder = "",
     backgroundColor = "#3D3E41",
     mode = "outlined",
     width = 90,
