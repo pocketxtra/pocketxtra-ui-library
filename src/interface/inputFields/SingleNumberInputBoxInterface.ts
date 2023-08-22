@@ -8,7 +8,5 @@ export interface SingleNumberInputBoxInterface{
     textColor?:string,
     maxLength?:number,
     borderRadius?:number,
-    error ?: boolean,
-    errorMessage ?:string,
     fontSize?:number,
 }

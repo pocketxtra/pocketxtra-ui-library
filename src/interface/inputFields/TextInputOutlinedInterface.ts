@@ -1,4 +1,5 @@
 export interface TextInputOutlinedInterface {
+    label?:string,
     placeHolder?: string,
     backgroundColor?:string,
     mode?:string,
@@ -14,4 +15,6 @@ export interface TextInputOutlinedInterface {
     fontSize?:number,
     disabled?:boolean,
     textAlign?:string,
+    errorColor?:string,
+    placeholderTextColor?:string,
 }

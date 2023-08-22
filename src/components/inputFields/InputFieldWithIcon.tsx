@@ -5,42 +5,48 @@ import {
 } from "react-native-responsive-dimensions";
 import { HelperText, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
-import { InputFieldWithIconInterface } from '../../interface/inputFields/InputFieldWithIconInterface';
+import { InputFieldIconInterface } from '../../interface/inputFields/InputFieldWithIconInterface';
+import { Colors } from '../../theme/ColorsConstant';
 
-export const InputFieldWithIcon : React.FC<InputFieldWithIconInterface & { onChangeText: (text: string) => void }> = ({
+export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeText: (text: string) => void }> = ({
+    label = "",
     placeHolder = "",
-    backgroundColor = "#3D3E41",
+    backgroundColor = Colors.backgroundColor,
     mode = "outlined",
-    width = 90,
-    activeOutlineColor = "#E4E4E4",
-    outlineColor = "#3D3E41",
-    textColor = "#E4E4E4",
+    width = 100,
+    activeOutlineColor = Colors.activeOutlineColor,
+    outlineColor = Colors.outlineColor,
+    textColor = Colors.textColor,
     borderRadius = 2,
     error = false,
-    errorMessage = '* Error: Payment Source is required',
-    fontSize=2,
-    iconColor = '#FFC727',
-    disabled=false,
-    onChangeText = () => {},
+    errorMessage = '',
+    fontSize = 2,
+    iconColor = Colors.iconColor,
+    disabled = false,
+    iconSize = 8,
+    errorColor = Colors.errorColor,
+    placeholderTextColor = Colors.placeholderTextColor,
+    onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>("");
     return (
         <>
             <TextInput
-                label={placeHolder}
-                theme={{ colors: { onSurfaceVariant: '#E4E4E4' } }}
+                label={label}
+                theme={{ colors: { onSurfaceVariant: textColor } }}
                 mode='outlined'
                 style={{
                     backgroundColor: backgroundColor,
                     alignSelf: 'center',
                     width: responsiveWidth(width),
-                    fontSize:responsiveFontSize(fontSize)
+                    fontSize: responsiveFontSize(fontSize)
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
+                placeholderTextColor={placeholderTextColor}
                 outlineColor={outlineColor}
                 textColor={textColor}
-                onChangeText={(text) => {setText(text);onChangeText(text)}}
+                onChangeText={(text) => { setText(text); onChangeText(text) }}
                 autoCapitalize="none"
                 blurOnSubmit={false}
                 keyboardType="default"
@@ -48,10 +54,10 @@ export const InputFieldWithIcon : React.FC<InputFieldWithIconInterface & { onCha
                 outlineStyle={{ borderRadius: responsiveWidth(borderRadius) }}
                 value={text}
                 disabled={disabled}
-                right={<TextInput.Icon icon={(props) => <Icon name="dollar-sign" color={iconColor} size={responsiveWidth(8)}/>} />}
+                right={<TextInput.Icon icon={(props) => <Icon name="dollar-sign" color={iconColor} size={responsiveWidth(iconSize)} />} />}
             />
             {error && errorMessage && (
-                <HelperText type="error" style={{marginLeft:responsiveWidth(3),color:"#F42D2D"}}>{errorMessage}</HelperText>
+                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>
             )}
         </>
     );

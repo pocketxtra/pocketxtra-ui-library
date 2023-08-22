@@ -1,4 +1,5 @@
-export interface InputFieldWithIconInterface {
+export interface InputFieldIconInterface {
+    label?:string,
     placeHolder?: string,
     backgroundColor?: string,
     mode?: string,
@@ -12,4 +13,7 @@ export interface InputFieldWithIconInterface {
     fontSize?: number,
     iconColor ?: string,
     disabled?:boolean,
+    placeholderTextColor?:string,
+    iconSize?:number,
+    errorColor?:string,
 }

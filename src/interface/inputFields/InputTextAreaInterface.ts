@@ -1,4 +1,5 @@
 export interface InputTextAreaInterface {
+    label?:string,
     placeHolder?: string,
     backgroundColor?:string,
     mode?:string,
@@ -12,4 +13,6 @@ export interface InputTextAreaInterface {
     fontSize?:number,
     numberOfLines?:number,
     multiline?:boolean,
+    errorColor?:string,
+    placeholderTextColor?:string,
 }

@@ -6,41 +6,46 @@ import {
 } from "react-native-responsive-dimensions";
 import { HelperText, TextInput } from 'react-native-paper';
 import { InputTextAreaInterface } from '../../interface/inputFields/InputTextAreaInterface';
+import { Colors } from '../../theme/ColorsConstant'
 
 export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (text: string) => void }> = ({
+    label = "",
     placeHolder = "",
-    backgroundColor = "#3D3E41",
+    backgroundColor = Colors.backgroundColor,
     mode = "outlined",
-    width = 90,
-    activeOutlineColor = "#E4E4E4",
-    outlineColor = "#3D3E41",
-    textColor = "#E4E4E4",
+    width = 100,
+    activeOutlineColor = Colors.activeOutlineColor,
+    outlineColor = Colors.outlineColor,
+    textColor = Colors.textColor,
     borderRadius = 2,
     error = false,
-    errorMessage = '* Error: Description is required',
-    fontSize=2,
-    multiline=true,
-    numberOfLines=5,
-    onChangeText = () => {},
+    errorMessage = '',
+    fontSize = 2,
+    multiline = true,
+    numberOfLines = 5,
+    errorColor = Colors.errorColor,
+    placeholderTextColor = Colors.placeholderTextColor,
+    onChangeText = () => { },
 }) => {
     const [areaText, setAreaText] = useState<string>("");
     return (
         <>
             <TextInput
-                label={placeHolder}
-                theme={{ colors: { onSurfaceVariant: '#E4E4E4' } }}
+                label={label}
+                theme={{ colors: { onSurfaceVariant: textColor } }}
                 mode='outlined'
                 style={{
                     backgroundColor: backgroundColor,
                     alignSelf: 'center',
                     width: responsiveWidth(width),
-                    fontSize:responsiveFontSize(fontSize)
+                    fontSize: responsiveFontSize(fontSize)
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
+                placeholderTextColor={placeholderTextColor}
                 outlineColor={outlineColor}
                 textColor={textColor}
-                onChangeText={(text) => {setAreaText(text);onChangeText(text)}}
+                onChangeText={(text) => { setAreaText(text); onChangeText(text) }}
                 autoCapitalize="none"
                 blurOnSubmit={false}
                 keyboardType="default"
@@ -51,7 +56,7 @@ export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (t
                 numberOfLines={numberOfLines}
             />
             {error && errorMessage && (
-                <HelperText type="error" style={{marginLeft:responsiveWidth(3),color:"#F42D2D"}}>{errorMessage}</HelperText>
+                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>
             )}
         </>
     );
