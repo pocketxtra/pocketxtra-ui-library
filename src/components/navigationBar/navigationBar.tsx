@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
     borderTopRightRadius: responsiveWidth(7),
     paddingBottom: responsiveWidth(5),
     paddingTop: responsiveWidth(5),
-    backgroundColor: "#000",
     height: responsiveWidth(30)
   },
 });
