@@ -1,5 +1,5 @@
  
- export interface SegmentedButtonsProps {
+ export interface SegmentedButtonsInterface {
   segments: { value: string; label: string }[];
   selectedColor?: string;
   unselectedColor?: string;
