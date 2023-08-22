@@ -11,7 +11,7 @@ export interface EditAndUpcomingEventCardInterface{
     borderRadius?: number,
     fontSize?: number
     imageSource?: ImageSource,
-    descriptionTextSize?: number,
+    descriptionFontSize?: number,
     eventName?: string,
     eventTextColor?: string,
     eventDescription?: string,
