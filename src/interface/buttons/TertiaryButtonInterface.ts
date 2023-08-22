@@ -1,24 +1,24 @@
 export interface TertiaryButtonInterface {
-    title?: string,
-    buttonColor?: string,
-    height?: number,
-    width?: number,
-    fontSize?: number,
-    color?: string,
-    borderColor?: string,
-    borderWidth?: number,
-    borderRadius?: number,
-    icon?: boolean,
-    iconColor?:string,
-    disabledIconColor?:string,
-    iconSize?:number,
-    disabled?:boolean,
-    marginTopLabel?:number,
-    marginBottomLabel?:number,
-    marginLeftLabel?:number,
-    marginRightLabel?:number,
-    marginTopButton?:number,
-    marginBottomButton?:number,
-    marginLeftButton?:number,
-    marginRightButton?:number,
+  title?: string;
+  buttonColor?: string;
+  height?: number;
+  width?: number;
+  fontSize?: number;
+  color?: string;
+  borderColor?: string;
+  borderWidth?: number;
+  borderRadius?: number;
+  icon?: boolean;
+  iconColor?: string;
+  disabledIconColor?: string;
+  iconSize?: number;
+  disabled?: boolean;
+  marginTopLabel?: number;
+  marginBottomLabel?: number;
+  marginLeftLabel?: number;
+  marginRightLabel?: number;
+  marginTopButton?: number;
+  marginBottomButton?: number;
+  marginLeftButton?: number;
+  marginRightButton?: number;
 }
