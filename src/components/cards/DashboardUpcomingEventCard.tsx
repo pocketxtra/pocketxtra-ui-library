@@ -7,11 +7,11 @@ import {
   responsiveFontSize,
 } from "react-native-responsive-dimensions";
 import { BlurView } from "expo-blur";
-import { DashBaordUpcommingEventCardInterface } from "../../interface/cards/DashBaordUpcommingEventCardInterface";
+import { DashboardUpcomingEventCardInterface } from "../../interface/cards/DashboardUpcomingEventCardInterface";
 import { Colors} from "../../components/theme/theme"
 
-export const DashBaordUpcommingEventCard: React.FC<
-DashBaordUpcommingEventCardInterface
+export const DashboardUpcomingEventCard: React.FC<
+DashboardUpcomingEventCardInterface
 > = ({
   width = 100,
   height = 70,

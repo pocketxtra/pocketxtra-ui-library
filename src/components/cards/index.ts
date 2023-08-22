@@ -1,5 +1,5 @@
-export {EditAndUpCommingEventCard} from './EditAndUpCommingEventCard';
-export {DashBaordUpcommingEventCard} from './DashBaordUpcommingEventCard';
+export {EditAndUpcomingEventCard} from './EditAndUpcomingEventCard';
+export {DashboardUpcomingEventCard} from './DashboardUpcomingEventCard';
 
 
 
