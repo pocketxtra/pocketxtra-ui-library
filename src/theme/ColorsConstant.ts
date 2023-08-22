@@ -13,4 +13,5 @@ export const Colors = {
     "disabledErrorColor": "#F8F6F4",
     "disabledActiveOutlineColor": "#000000",
     "disabledOutlineColor": "#000000",
+    "placeholderTextColor": "#fff",
 }
