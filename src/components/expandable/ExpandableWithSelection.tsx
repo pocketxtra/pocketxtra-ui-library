@@ -18,12 +18,12 @@ export const ExpandableWithSelection: React.FC<
   iconInfo = '',
   expandableParagraph = '',
   userRole = '',
-  successColor = Colors.backgroundColor,
+  successButtonColor = Colors.backgroundColor,
   height = 20,
   width = 100,
   borderRadius = 4,
   borderWidth = 0,
-  backgroundColour = Colors.backgroundColor,
+  expandablebackgroundColour = Colors.backgroundColor,
   fontSize = 2,
   iconSize = 9,
   iconColor = Colors.iconColor,
@@ -32,7 +32,7 @@ export const ExpandableWithSelection: React.FC<
   borderColor = Colors.borderColor,
   expandableTextColor = Colors.textColor,
   imageSource = { uri: 'https://picsum.photos/700' },
-  imgSize = 40,
+  imageSize = 40,
   buttonTextColor = Colors.textColor, 
   infoIconColor = Colors.iconColor
 }) => {
@@ -43,7 +43,7 @@ export const ExpandableWithSelection: React.FC<
 
   const handlePressButton = () => {
     setExpanded(!expanded);
-    setPenColor(successColor);
+    setPenColor(successButtonColor);
     setButtonText("Selected");
   };
 
@@ -62,7 +62,7 @@ export const ExpandableWithSelection: React.FC<
           width: responsiveWidth(width),
           height: responsiveWidth(height),
           alignSelf: "center",
-          backgroundColor: backgroundColour,
+          backgroundColor: expandablebackgroundColour,
         }}
         title={userRole}
         right={(props) => (
@@ -107,14 +107,14 @@ export const ExpandableWithSelection: React.FC<
               alignSelf: "center",
               width: responsiveWidth(width),
               height: "auto",
-              backgroundColor: backgroundColour,
+              backgroundColor: expandablebackgroundColour,
             }}
           >
             <Image
               source={{ uri: imageSource.uri }}
               style={{
-                height: responsiveWidth(imgSize),
-                width: responsiveWidth(imgSize),
+                height: responsiveWidth(imageSize),
+                width: responsiveWidth(imageSize),
                 alignSelf: "center",
                 marginBottom: responsiveWidth(10),
                 marginTop: responsiveWidth(10),
@@ -143,7 +143,7 @@ export const ExpandableWithSelection: React.FC<
             <Pressable
               onPress={handlePressButton}
               style={{
-                backgroundColor: successColor,
+                backgroundColor: successButtonColor,
                 width: responsiveWidth(25),
                 height: responsiveHeight(6),
                 borderRadius: responsiveWidth(3),
