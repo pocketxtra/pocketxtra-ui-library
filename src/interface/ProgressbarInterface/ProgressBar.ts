@@ -1,13 +1,11 @@
- export interface ProgressBarProps {
-    ProgressBarWidth?: number,
-    marginBottom : number,
-    progressBarHeight : number,
-    progressContainerMarginTop : number,
-    textmarginBottom  : number,
-    circlecolor : string,
-    circleWidht : number,
-    circleHeight : number,
-    circleborderRadius : number,
-    circlePositiontop: number,
-    
-  }
+  export interface ProgressBarComponentProps {
+  minimumValue : number,
+  maximumValue : number,
+  step : number,
+  textColor : string,
+  textFontSize : number,
+  textMarginBottom : number,
+  sliderStyle : any,
+  minimumTrackTintColor : string,
+  maximumTrackTintColor : string
+}
