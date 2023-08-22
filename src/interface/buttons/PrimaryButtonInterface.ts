@@ -17,7 +17,4 @@ export interface PrimaryButtonInterface {
     marginBottomButton?:number,
     marginLeftButton?:number,
     marginRightButton?:number,
-    disabledColor?: string,
-    disabledButtonColor?: string,
-    disabledBorderColor?:string,
 }

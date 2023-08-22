@@ -11,7 +11,7 @@ export interface TertiaryButtonInterface {
     icon?: boolean,
     iconColor?:string,
     disabledIconColor?:string,
-    sizeIcon?:number,
+    iconSize?:number,
     disabled?:boolean,
     marginTopLabel?:number,
     marginBottomLabel?:number,
@@ -21,7 +21,4 @@ export interface TertiaryButtonInterface {
     marginBottomButton?:number,
     marginLeftButton?:number,
     marginRightButton?:number,
-    disabledColor?: string,
-    disabledButtonColor?: string,
-    disabledBorderColor?:string,
 }

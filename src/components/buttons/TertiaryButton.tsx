@@ -20,7 +20,7 @@ export const TertiaryButton: React.FC<TertiaryButtonInterface & { onPress?: () =
     borderRadius = 22,
     borderWidth = 2,
     icon = false,
-    sizeIcon=5,
+    iconSize=5,
     onPress = () => {},
     disabled=false,
     marginTopLabel=0,
@@ -31,16 +31,12 @@ export const TertiaryButton: React.FC<TertiaryButtonInterface & { onPress?: () =
     marginBottomButton=0,
     marginLeftButton=0,
     marginRightButton=0,
-    disabledColor=Colors.disabledTextColor,
-    disabledButtonColor=Colors.disabledBackgroundColor,
-    disabledBorderColor=Colors.disabledBorderColor,
-    disabledIconColor=Colors.disabledIconColor,
     iconColor=Colors.iconColor,
 }) => {
     return (
         <Button mode="contained"
             icon={icon ? ({ size, color }) => (
-                <Icon name="verified" size={responsiveWidth(sizeIcon)} color={disabled?disabledIconColor:iconColor} />
+                <Icon name="verified" size={responsiveWidth(iconSize)} color={iconColor} />
             ) : undefined}
             style={{
                 justifyContent: 'center',
@@ -48,9 +44,9 @@ export const TertiaryButton: React.FC<TertiaryButtonInterface & { onPress?: () =
                 borderRadius:responsiveWidth(borderRadius),
                 height: responsiveHeight(height),
                 width: responsiveWidth(width),
-                borderColor:disabled?disabledBorderColor:borderColor,
+                borderColor:borderColor,
                 borderWidth:borderWidth,
-                backgroundColor:disabled?disabledButtonColor:buttonColor,
+                backgroundColor:buttonColor,
                 marginTop:marginTopButton,
                 marginBottom:marginBottomButton,
                 marginLeft:marginLeftButton,
@@ -59,7 +55,7 @@ export const TertiaryButton: React.FC<TertiaryButtonInterface & { onPress?: () =
             labelStyle={{
                 fontSize: responsiveFontSize(fontSize),
                 textAlignVertical: 'center',
-                color: disabled?disabledColor:color,
+                color:color,
                 marginTop:responsiveWidth(marginTopLabel),
                 marginBottom:responsiveWidth(marginBottomLabel),
                 marginLeft:responsiveWidth(marginLeftLabel),

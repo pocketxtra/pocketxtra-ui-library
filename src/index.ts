@@ -1,1 +1,1 @@
-import './components/buttons/index'
+export {PrimaryButton,TertiaryButton} from "./components/buttons/index"
