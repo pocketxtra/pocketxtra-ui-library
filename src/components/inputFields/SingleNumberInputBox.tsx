@@ -18,6 +18,9 @@ export const SingleNumberInputBox: React.FC<SingleNumberInputBoxInterface & { on
     maxLength = 1,
     borderRadius = 2,
     fontSize = 3,
+    height=10,
+    marginLeft=0,
+    marginRight=0,
     onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>();
@@ -34,6 +37,9 @@ export const SingleNumberInputBox: React.FC<SingleNumberInputBoxInterface & { on
                     justifyContent: 'center',
                     alignItems: 'center',
                     textAlignVertical: 'center',
+                    height:responsiveHeight(height),
+                    marginLeft:responsiveWidth(marginLeft),
+                    marginRight:responsiveWidth(marginRight)
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}

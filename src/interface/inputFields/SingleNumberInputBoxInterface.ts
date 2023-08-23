@@ -9,4 +9,7 @@ export interface SingleNumberInputBoxInterface{
     maxLength?:number,
     borderRadius?:number,
     fontSize?:number,
+    height?:number,
+    marginLeft?:number,
+    marginRight?:number
 }

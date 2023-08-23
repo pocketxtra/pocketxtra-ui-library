@@ -27,8 +27,6 @@ export const TertiaryButton: React.FC<
   disabled = false,
   marginTopLabel = 0,
   marginBottomLabel = 0,
-  marginLeftLabel = 0,
-  marginRightLabel = 0,
   marginTopButton = 0,
   marginBottomButton = 0,
   marginLeftButton = 0,
@@ -68,9 +66,7 @@ export const TertiaryButton: React.FC<
         textAlignVertical: "center",
         color: color,
         marginTop: responsiveWidth(marginTopLabel),
-        marginBottom: responsiveWidth(marginBottomLabel),
-        marginLeft: responsiveWidth(marginLeftLabel),
-        marginRight: responsiveWidth(marginRightLabel),
+        marginBottom: responsiveWidth(marginBottomLabel)
       }}
       contentStyle={{ alignSelf: "center", flexDirection: "row-reverse" }}
       onPress={onPress}
