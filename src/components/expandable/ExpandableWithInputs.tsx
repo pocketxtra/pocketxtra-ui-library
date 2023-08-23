@@ -50,6 +50,7 @@ export const ExpandableWithInputs: React.FC<ExpandableInputInterface> = ({
             height: responsiveWidth(height),
             alignSelf: "center",
             backgroundColor: bgColor,
+            position: 'absolute'
           }}
           right={(props) => (
             <View

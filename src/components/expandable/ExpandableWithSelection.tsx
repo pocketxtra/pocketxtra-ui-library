@@ -63,6 +63,7 @@ export const ExpandableWithSelection: React.FC<
           height: responsiveWidth(height),
           alignSelf: "center",
           backgroundColor: expandablebackgroundColour,
+          position: 'absolute'
         }}
         title={userRole}
         right={(props) => (
