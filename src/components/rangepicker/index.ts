@@ -1,1 +1,1 @@
-import { RangePickerComponent } from "./RangePicker";
+export {RangePickerComponent} from "./RangePicker"

@@ -1,1 +1,1 @@
-import {CustomRadioButtonComponent} from "./RadioButtonComponent";
+export {CustomRadioButtonComponent} from "./RadioButtonComponent"

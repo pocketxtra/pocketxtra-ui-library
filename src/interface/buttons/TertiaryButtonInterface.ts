@@ -10,7 +10,6 @@ export interface TertiaryButtonInterface {
   borderRadius?: number;
   icon?: boolean;
   iconColor?: string;
-  disabledIconColor?: string;
   iconSize?: number;
   disabled?: boolean;
   marginTopLabel?: number;

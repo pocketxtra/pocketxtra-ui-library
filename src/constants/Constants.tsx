@@ -1,1 +1,1 @@
-export const UPCOMING = 'Upcoming'
+export const UPCOMING = "Upcoming"

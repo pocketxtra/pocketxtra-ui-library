@@ -1,2 +1,1 @@
-
-import {CustomSegmentedButtonsComponent} from './SegmentedButtons';
+export {CustomSegmentedButtonsComponent} from "./SegmentedButtons"

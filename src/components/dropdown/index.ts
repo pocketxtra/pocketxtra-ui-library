@@ -1,1 +1,1 @@
-import { CustomDropDownComponent } from "./DropDown";
+export {CustomDropDownComponent} from "./DropDown"
