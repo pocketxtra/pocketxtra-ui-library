@@ -14,8 +14,6 @@ export interface TertiaryButtonInterface {
   disabled?: boolean;
   marginTopLabel?: number;
   marginBottomLabel?: number;
-  marginLeftLabel?: number;
-  marginRightLabel?: number;
   marginTopButton?: number;
   marginBottomButton?: number;
   marginLeftButton?: number;
