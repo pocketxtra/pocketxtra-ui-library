@@ -8,7 +8,7 @@ import {
 } from "react-native-responsive-dimensions";
 import { BlurView } from "expo-blur";
 import { DashboardUpcomingEventCardInterface } from "../../interface/cards/DashboardUpcomingEventCardInterface";
-import { Colors} from "../theme/ColorsConstant"
+import { Colors} from "../../theme/ColorsConstant"
 
 export const DashboardUpcomingEventCard: React.FC<
 DashboardUpcomingEventCardInterface
