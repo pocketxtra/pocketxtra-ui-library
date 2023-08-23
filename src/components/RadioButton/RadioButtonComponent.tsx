@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import { responsiveHeight , responsiveWidth } from 'react-native-responsive-dimensions';
 import { RadioButtonComponentInterface } from '../../interface/RadioButton/RadioButtonInterface';
-
+import { Colors } from '../../theme/ColorsConstant';
 export const CustomRadioButtonComponent: React.FC<RadioButtonComponentInterface> = ({
   options,
   checkedColor,
@@ -14,7 +14,9 @@ export const CustomRadioButtonComponent: React.FC<RadioButtonComponentInterface>
   title,
   fontWeight,
   flexDirections,
-  textPadding = 1, 
+  textPadding = 1,
+  headingTextColor = Colors.backgroundColor, 
+  textColor  = Colors.backgroundColor,
 }) => {
   const [checked, setChecked] = React.useState<string>('');
 
@@ -32,7 +34,8 @@ export const CustomRadioButtonComponent: React.FC<RadioButtonComponentInterface>
           fontWeight,
           textAlign: 'center',
           padding : responsiveWidth(textPadding),
-          alignSelf: 'flex-start'
+          alignSelf: 'flex-start',
+          color:headingTextColor
         }}
       >
         {title}
@@ -57,7 +60,7 @@ export const CustomRadioButtonComponent: React.FC<RadioButtonComponentInterface>
             uncheckedColor={uncheckedColor}
             status={checked === option.value ? 'checked' : 'unchecked'}
           />
-          <Text >{option.label}</Text>
+          <Text style={{color:textColor}}>{option.label}</Text>
         </View>
       ))}
     </View>
