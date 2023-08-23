@@ -9,6 +9,8 @@ export interface RadioButtonComponentInterface {
   fontWeight?: string;
   flexDirections?: string;
   textPadding?: number;
+  headingTextColor?:string;
+  textColor?:string;
 }
 
 interface Option {

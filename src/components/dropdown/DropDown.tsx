@@ -52,7 +52,7 @@ export const CustomDropDownComponent: React.FC<DropDownInterface> = ({
         <Text style={{ color: textColor}}>{selectedItem || selectedLabel}</Text>
         <Icon
           style={{
-            transform: [{ rotate: showOptions ? "180de": "0deg" }],
+            transform: [{ rotate: showOptions ? "180deg": "0deg" }],
             color:iconColor,
           }}
           name="arrow-drop-down"
