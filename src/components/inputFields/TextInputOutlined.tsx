@@ -28,6 +28,11 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
     disabled = false,
     textAlign = "auto",
     placeholderTextColor = Colors.placeholderTextColor,
+    marginTop=0,
+    marginBottom=0,
+    marginLeft=0,
+    marginRight=0,
+    height=20,
     onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>("");
@@ -42,7 +47,12 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
                     alignSelf: 'center',
                     width: responsiveWidth(width),
                     fontSize: responsiveFontSize(fontSize),
-                    textAlign: textAlign
+                    textAlign: textAlign,
+                    height:responsiveWidth(height),
+                    marginTop: responsiveHeight(marginTop),
+                    marginBottom: responsiveHeight(marginBottom),
+                    marginLeft: responsiveWidth(marginLeft),
+                    marginRight: responsiveWidth(marginRight),
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}

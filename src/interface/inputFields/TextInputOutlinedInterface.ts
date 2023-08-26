@@ -17,4 +17,9 @@ export interface TextInputOutlinedInterface {
     textAlign?:string,
     errorColor?:string,
     placeholderTextColor?:string,
+    marginTop?:number,
+    marginBottom?:number,
+    marginLeft?:number,
+    marginRight?:number,
+    height?:number,
 }

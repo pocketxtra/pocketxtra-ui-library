@@ -56,10 +56,10 @@ export const TertiaryButton: React.FC<
         borderColor: borderColor,
         borderWidth: borderWidth,
         backgroundColor: buttonColor,
-        marginTop: marginTopButton,
-        marginBottom: marginBottomButton,
-        marginLeft: marginLeftButton,
-        marginRight: marginRightButton,
+        marginTop: responsiveHeight(marginTopButton),
+        marginBottom: responsiveHeight(marginBottomButton),
+        marginLeft: responsiveWidth(marginLeftButton),
+        marginRight: responsiveWidth(marginRightButton),
       }}
       labelStyle={{
         fontSize: responsiveFontSize(fontSize),
