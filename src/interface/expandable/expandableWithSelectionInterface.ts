@@ -1,31 +1,28 @@
-export interface ExpandableWithSelectionInterface{
-    icon?: string,
-    iconInfo?: string,
-    title?: string,
-    expandableParagraph?: string,
-    userRole?: string,
-    successButtonColor?: string,
-    width?: number,
-    height?: number,
-    borderRadius?: number,
-    borderWidth?: number,
-    expandablebackgroundColour?: string,
-    fontSize?: number,
-    iconSize?: number,
-    iconColor?: string,
-    expandableTextSize?: number,
-    textColor?: string,
-    borderColor?: string,
-    expandableTextColor?: string
-    imageSource?: ImageSource,
-    fontFamily?: string,
-    imageSize?: number,
-    buttonBgColor?: string,
-    buttonTextColor?: string,
-    infoIconColor?: string,
+export interface ExpandableWithSelectionInterface {
+  expandableBgColor?: string;
+  themeBackgroundColor?: string;
+  borderRadius?: number;
+  width?: number;
+  height?: number;
+  title?: string;
+  textColor?: string;
+  textSize?: number;
+  infoIcon?: string;
+  mainIcon?: string;
+  titleDescription?: string;
+  imageSource?: ImageSource;
+  imageHeight?: number;
+  imageWidth?: number;
+  successColor?: string;
+  iconColor?: string;
+  infoIconSize?: number;
+  mainIconSize?: number;
+  titleFontSize?: number;
+  descriptionFontSize?: number;
+  titleColor?: string;
+  descriptionFontColor?: string;
 }
 
 interface ImageSource {
-    uri?: string; 
-    path?: string; 
+  uri?: string;
 }
