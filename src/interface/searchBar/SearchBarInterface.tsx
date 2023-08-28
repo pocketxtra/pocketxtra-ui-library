@@ -15,4 +15,9 @@ export interface SearchBarInterface {
     inProgress?: boolean,
     errorColor?: string,
     iconSize?:number,
+    marginTop?:number,
+    marginBottom?:number,
+    marginLeft?:number,
+    marginRight?:number,
+    height?:number,
 }
