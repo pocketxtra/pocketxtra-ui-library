@@ -61,7 +61,7 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
                 textColor={textColor}
                 onChangeText={(text) => { setText(text); onChangeText(text); }}
                 autoCapitalize="none"
-                blurOnSubmit={false}
+                blurOnSubmit={true}
                 keyboardType={keyboardType as KeyboardTypeOptions}
                 returnKeyType="done"
                 maxLength={maxLength}

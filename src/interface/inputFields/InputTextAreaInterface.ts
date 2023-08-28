@@ -15,4 +15,8 @@ export interface InputTextAreaInterface {
     multiline?:boolean,
     errorColor?:string,
     placeholderTextColor?:string,
+    marginTop?:number,
+    marginBottom?:number,
+    marginLeft?:number,
+    marginRight?:number,
 }

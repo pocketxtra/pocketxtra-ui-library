@@ -47,7 +47,7 @@ export const SingleNumberInputBox: React.FC<SingleNumberInputBoxInterface & { on
                 textColor={textColor}
                 onChangeText={(text) => { setText(text); onChangeText(text); }}
                 autoCapitalize="none"
-                blurOnSubmit={false}
+                blurOnSubmit={true}
                 keyboardType='number-pad'
                 returnKeyType="done"
                 maxLength={maxLength}

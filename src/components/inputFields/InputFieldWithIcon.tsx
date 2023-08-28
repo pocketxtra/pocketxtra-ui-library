@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
     responsiveWidth,
+    responsiveHeight,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
 import { HelperText, TextInput } from 'react-native-paper';
@@ -26,6 +27,12 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
     iconSize = 8,
     errorColor = Colors.errorColor,
     placeholderTextColor = Colors.placeholderTextColor,
+    marginTop=0,
+    marginBottom=0,
+    marginLeft=0,
+    marginRight=0,
+    height=20,
+    featherIconName="dollar-sign",
     onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>("");
@@ -39,7 +46,12 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
                     backgroundColor: backgroundColor,
                     alignSelf: 'center',
                     width: responsiveWidth(width),
-                    fontSize: responsiveFontSize(fontSize)
+                    fontSize: responsiveFontSize(fontSize),
+                    height:responsiveWidth(height),
+                    marginTop: responsiveHeight(marginTop),
+                    marginBottom: responsiveHeight(marginBottom),
+                    marginLeft: responsiveWidth(marginLeft),
+                    marginRight: responsiveWidth(marginRight),
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
@@ -48,13 +60,13 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
                 textColor={textColor}
                 onChangeText={(text) => { setText(text); onChangeText(text) }}
                 autoCapitalize="none"
-                blurOnSubmit={false}
+                blurOnSubmit={true}
                 keyboardType="default"
                 returnKeyType="done"
                 outlineStyle={{ borderRadius: responsiveWidth(borderRadius) }}
                 value={text}
                 disabled={disabled}
-                right={<TextInput.Icon icon={(props) => <Icon name="dollar-sign" color={iconColor} size={responsiveWidth(iconSize)} />} />}
+                right={<TextInput.Icon icon={(props) => <Icon name={featherIconName} color={iconColor} size={responsiveWidth(iconSize)} />} />}
             />
             {error && errorMessage && (
                 <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>

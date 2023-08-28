@@ -16,4 +16,10 @@ export interface InputFieldIconInterface {
     placeholderTextColor?:string,
     iconSize?:number,
     errorColor?:string,
+    marginTop?:number,
+    marginBottom?:number,
+    marginLeft?:number,
+    marginRight?:number,
+    height?:number,
+    featherIconName?:string,
 }

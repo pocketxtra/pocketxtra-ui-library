@@ -32,6 +32,7 @@ export const TertiaryButton: React.FC<
   marginLeftButton = 0,
   marginRightButton = 0,
   iconColor = Colors.iconColor,
+  materialIconName="verified",
 }) => {
   return (
     <Button
@@ -40,7 +41,7 @@ export const TertiaryButton: React.FC<
         icon
           ? ({ size, color }) => (
               <Icon
-                name="verified"
+                name={materialIconName}
                 size={responsiveWidth(iconSize)}
                 color={iconColor}
               />

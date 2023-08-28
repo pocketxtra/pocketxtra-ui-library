@@ -25,6 +25,10 @@ export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (t
     numberOfLines = 5,
     errorColor = Colors.errorColor,
     placeholderTextColor = Colors.placeholderTextColor,
+    marginTop=0,
+    marginBottom=0,
+    marginLeft=0,
+    marginRight=0,
     onChangeText = () => { },
 }) => {
     const [areaText, setAreaText] = useState<string>("");
@@ -38,7 +42,11 @@ export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (t
                     backgroundColor: backgroundColor,
                     alignSelf: 'center',
                     width: responsiveWidth(width),
-                    fontSize: responsiveFontSize(fontSize)
+                    fontSize: responsiveFontSize(fontSize),
+                    marginTop: responsiveHeight(marginTop),
+                    marginBottom: responsiveHeight(marginBottom),
+                    marginLeft: responsiveWidth(marginLeft),
+                    marginRight: responsiveWidth(marginRight),
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
@@ -47,7 +55,7 @@ export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (t
                 textColor={textColor}
                 onChangeText={(text) => { setAreaText(text); onChangeText(text) }}
                 autoCapitalize="none"
-                blurOnSubmit={false}
+                blurOnSubmit={true}
                 keyboardType="default"
                 returnKeyType="done"
                 outlineStyle={{ borderRadius: responsiveWidth(borderRadius) }}
