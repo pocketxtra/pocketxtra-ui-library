@@ -22,6 +22,7 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
     backgroundColor=Colors.backgroundColor,
     alertHeadingText="",
     alertBodyText="",
+    iconSize=30,
     onChangeImage = () => { },
 }) => {
 
@@ -144,7 +145,7 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
                                 <Image source={{ uri: image }} style={{ width: '100%', height: '100%', borderRadius: responsiveWidth(borderRadius) }} />
                                 :
                                 <View style={{ alignSelf: 'center' }}>
-                                    <Icon name="image" size={responsiveWidth(30)} color={iconColor} />
+                                    <Icon name="image" size={responsiveWidth(iconSize)} color={iconColor} />
                                 </View>
                             }
                         </View>
@@ -159,7 +160,7 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
                             />
                         ) : (
                             <View style={{ flex: 1 }}>
-                                <Image source={{ uri: image }} style={{ flex: 1 }} resizeMode="contain" />
+                                <Image source={{ uri: image }} style={{ flex: 0.8 }} resizeMode="contain" />
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', flex: 0.2 }}>
                                     <Pressable onPress={retakePicture} style={{ alignItems: 'center', paddingBottom: responsiveWidth(5) }}>
                                         <RetakeIcon name="camera-retake" size={responsiveWidth(15)} color={iconColor} />

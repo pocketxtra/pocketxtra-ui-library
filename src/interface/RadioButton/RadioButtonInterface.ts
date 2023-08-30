@@ -5,12 +5,16 @@ export interface RadioButtonComponentInterface {
   marginVertical?: number;
   containerStyle?: any;
   textFontSize?: number;
+  textColor?: string;
+  headingTextColor?: string;
   title?: string;
   fontWeight?: string;
   flexDirections?: string;
   textPadding?: number;
-  headingTextColor?:string;
-  textColor?:string;
+  optionFontSize?: number;
+  optionMarginLeft?: number;
+  unSelectedColor?: string;
+  onValueChange: (value: string) => void;
 }
 
 interface Option {

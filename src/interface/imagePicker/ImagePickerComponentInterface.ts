@@ -6,4 +6,5 @@ export interface ImagePickerComponentInterface{
     alertHeadingText?:string,
     alertBodyText?:string,
     backgroundColor?:string,
+    iconSize?:number,
 }
