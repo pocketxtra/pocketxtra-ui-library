@@ -9,5 +9,4 @@ export interface ProgressBarComponentInterface {
   minimumTrackTintColor?: string;
   maximumTrackTintColor?: string;
   thumbTintColor?: string;
-  changeValue: (value: string) => void;
 }

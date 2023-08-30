@@ -35,11 +35,11 @@ export const CustomRadioButtonComponent: React.FC<
 
   const optionContainerStyle =
     flexDirections === "row"
-      ? { flexDirection: "row", justifyContent: "space-between" }
+      ? { flexDirection: "row", justifyContent: "space-around" }
       : { flexDirection: "column" };
 
   return (
-    <View style={{ alignSelf: "center", ...containerStyle }}>
+    <View style={{ ...containerStyle }}>
       {title && (
         <Text
           style={{

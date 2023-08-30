@@ -8,7 +8,7 @@ import {
 import Slider from "@react-native-community/slider";
 import { Colors } from "../../theme/ColorsConstant";
 
-export const ProgressBarComponent: React.FC<ProgressBarComponentInterface> = ({
+export const ProgressBarComponent: React.FC<ProgressBarComponentInterface & { changeValue: (text: string) => void }> = ({
   minimumValue,
   maximumValue,
   step,
@@ -19,9 +19,9 @@ export const ProgressBarComponent: React.FC<ProgressBarComponentInterface> = ({
   minimumTrackTintColor,
   maximumTrackTintColor,
   thumbTintColor = "yellow",
-  changeValue,
+  changeValue= () => { },
 }) => {
-  const [value, setValue] = useState<number>(50);
+  const [value, setValue] = useState<number>(0);
 
   const onValueChange = (newValue) => {
     setValue(newValue);
@@ -37,7 +37,7 @@ export const ProgressBarComponent: React.FC<ProgressBarComponentInterface> = ({
           marginBottom: responsiveHeight(textMarginBottom),
         }}
       >
-        {value}
+        {value>=maximumValue?`more than ${maximumValue}`:`size : ${Math.round(value)}`}
       </Text>
       <Slider
         style={{ width: responsiveWidth(100), ...sliderStyle }}
