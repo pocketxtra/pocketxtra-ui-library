@@ -22,4 +22,5 @@ export interface TextInputOutlinedInterface {
     marginLeft?:number,
     marginRight?:number,
     height?:number,
+    value?:string,
 }

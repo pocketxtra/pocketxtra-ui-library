@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
     responsiveHeight,
     responsiveWidth,
@@ -21,9 +21,15 @@ export const SingleNumberInputBox: React.FC<SingleNumberInputBoxInterface & { on
     height=10,
     marginLeft=0,
     marginRight=0,
+    value="",
     onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>();
+    useEffect(()=>{
+        if(value!==null){
+            setText(value)
+        }
+    },[value])
     return (
         <>
             <TextInput

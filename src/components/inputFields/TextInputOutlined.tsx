@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
     responsiveHeight,
     responsiveWidth,
@@ -33,9 +33,15 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
     marginLeft=0,
     marginRight=0,
     height=20,
+    value="",
     onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>("");
+    useEffect(()=>{
+        if(value!==null){
+            setText(value)
+        }
+    },[value])
     return (
         <>
             <TextInput

@@ -22,4 +22,5 @@ export interface InputFieldIconInterface {
     marginRight?:number,
     height?:number,
     featherIconName?:string,
+    value?:string,
 }

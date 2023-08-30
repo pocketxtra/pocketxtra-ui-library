@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
     responsiveHeight,
     responsiveWidth,
@@ -29,9 +29,16 @@ export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (t
     marginBottom=0,
     marginLeft=0,
     marginRight=0,
+    value="",
     onChangeText = () => { },
 }) => {
     const [areaText, setAreaText] = useState<string>("");
+
+    useEffect(()=>{
+        if(value!==null){
+            setAreaText(value)
+        }
+    },[value])
     return (
         <>
             <TextInput

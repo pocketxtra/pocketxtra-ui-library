@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
     responsiveWidth,
     responsiveHeight,
@@ -33,9 +33,15 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
     marginRight=0,
     height=20,
     featherIconName="dollar-sign",
+    value="",
     onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>("");
+    useEffect(()=>{
+        if(value!==null){
+            setText(value)
+        }
+    },[value])
     return (
         <>
             <TextInput
