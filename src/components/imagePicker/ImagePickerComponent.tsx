@@ -12,26 +12,26 @@ import RetakeIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ImagePickerComponentInterface } from '../../interface/imagePicker/ImagePickerComponentInterface';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera } from 'expo-camera';
-import {Colors} from "../../theme/ColorsConstant"
+import { Colors } from "../../theme/ColorsConstant"
 
 export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { onChangeImage: (text: string) => void }> = ({
     width = 40,
     height = 40,
     borderRadius = 10,
     iconColor = Colors.iconColor,
-    backgroundColor=Colors.backgroundColor,
-    alertHeadingText="",
-    alertBodyText="",
-    iconSize=30,
+    backgroundColor = Colors.backgroundColor,
+    alertHeadingText = "",
+    alertBodyText = "",
+    iconSize = 30,
     onChangeImage = () => { },
+    imageUrl = "",
 }) => {
-
-    const [image, setImage] = useState<string>('');
+    const [image, setImage] = useState<string | null>(null); // Initialize as null
     const [hasPermission, setHasPermission] = useState<boolean | null>(null);
     const [cameraRef, setCameraRef] = useState<Camera | null>(null);
     const [showCamera, setShowCamera] = useState<boolean>(false);
     const [cameraType, setCameraType] = useState<Camera.Constants.Type>(Camera.Constants.Type.back);
-    const [selectedOption, setSelectedOption] = useState("Gallary")
+    const [selectedOption, setSelectedOption] = useState("Gallery");
 
     useEffect(() => {
         (async () => {
@@ -45,10 +45,16 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
     }, []);
 
     useEffect(() => {
-        if (image !== '') {
+        if (image !== null) {
             onChangeImage(image);
         }
-    }, [image])
+    }, [image]);
+
+    useEffect(() => {
+        if (imageUrl) {
+            setImage(imageUrl);
+        }
+    }, [imageUrl]);
 
     const clickPicture = async () => {
         if (cameraRef) {
@@ -59,7 +65,7 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
     };
 
     const retakePicture = () => {
-        setImage('');
+        setImage(null); // Set image to null to clear it
         setShowCamera(true);
     };
 
@@ -80,14 +86,14 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
     }
 
     const submitImage = () => {
-        setSelectedOption("Gallary")
+        setSelectedOption("Gallery");
     };
-
 
     const pickImage = async () => {
         const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
         if (status !== 'granted') {
-            alert('Permission denied')
+            alert('Permission denied');
+            return;
         }
 
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -96,11 +102,9 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
             aspect: [4, 3],
             quality: 1,
         });
-        delete result.cancelled;
-        console.log(result);
 
         if (!result.canceled) {
-            setImage(result.assets[0].uri);
+            setImage(result.uri);
         }
     };
 
@@ -113,23 +117,24 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
                     text: 'Camera',
                     onPress: () => {
                         setSelectedOption("Camera");
-                        setShowCamera(true)
+                        setShowCamera(true);
                     }
                 },
                 {
-                    text: 'Gallary',
+                    text: 'Gallery',
                     onPress: () => {
-                        setSelectedOption("Gallary");
+                        setSelectedOption("Gallery");
                         pickImage();
                     }
                 }
             ]
         );
-    }
+    };
+
     return (
         <>
             {
-                selectedOption === "Gallary" ?
+                selectedOption === "Gallery" ?
                     <Pressable onPress={ChooseMethod}>
                         <View
                             style={{
@@ -141,7 +146,7 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
                                 justifyContent: 'center'
                             }}
                         >
-                            {image ?
+                            {image !== null ?
                                 <Image source={{ uri: image }} style={{ width: '100%', height: '100%', borderRadius: responsiveWidth(borderRadius) }} />
                                 :
                                 <View style={{ alignSelf: 'center' }}>
@@ -183,9 +188,7 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
                             </View>
                         )}
                     </View>
-
             }
-
         </>
     );
 };

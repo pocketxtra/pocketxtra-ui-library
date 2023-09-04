@@ -6,7 +6,7 @@ import {
 } from "react-native-responsive-dimensions";
 import { HelperText, TextInput } from 'react-native-paper';
 import { TextInputOutlinedInterface } from '../../interface/inputFields/TextInputOutlinedInterface';
-import { KeyboardTypeOptions } from 'react-native';
+import { KeyboardTypeOptions, View } from 'react-native';
 import { Colors } from "../../theme/ColorsConstant"
 
 export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChangeText: (text: string) => void }> = ({
@@ -34,6 +34,7 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
     marginRight=0,
     height=20,
     value="",
+    errorFontSize=2,
     onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>("");
@@ -44,6 +45,7 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
     },[value])
     return (
         <>
+            <View>
             <TextInput
                 label={label}
                 theme={{ colors: { onSurfaceVariant: textColor } }}
@@ -75,9 +77,12 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
                 value={text}
                 disabled={disabled}
             />
+            </View>
+            <View>
             {error && errorMessage && (
-                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>
+                <HelperText type="error" style={{ color: errorColor, fontSize:responsiveFontSize(errorFontSize)}}>{errorMessage}</HelperText>
             )}
+            </View>
         </>
     );
 };

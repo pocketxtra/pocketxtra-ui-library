@@ -14,8 +14,8 @@ import {
   responsiveFontSize,
 } from "react-native-responsive-dimensions";
 import Pen from "react-native-vector-icons/Ionicons";
-import { ExpandableWithSelectionInterface } from "../interface/expandable/ExpandableWithSelectionInterface";
-import {Colors} from '../theme/ColorConstant'
+import { ExpandableWithSelectionInterface } from "../../interface/expandable/expandableWithSelectionInterface";
+import {Colors} from '../../theme/ColorsConstant'
 
 export const ExpandableWithSelection: React.FC<ExpandableWithSelectionInterface> = ({
   expandableBgColor = Colors.borderColor,

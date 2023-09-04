@@ -8,7 +8,7 @@ import {
   responsiveWidth,
   responsiveFontSize,
 } from "react-native-responsive-dimensions";
-import { ExpandableInputInterface } from '../../interface/expandable/ExpandableInputInterface'
+import { ExpandableInputInterface } from '../../interface/expandable/expandableInputInterface'
 import { Colors } from "../../theme/ColorsConstant";
 
 export const ExpandableWithInputs: React.FC<ExpandableInputInterface> = ({
