@@ -15,6 +15,7 @@ export interface RadioButtonComponentInterface {
   optionMarginLeft?: number;
   unSelectedColor?: string;
   onValueChange: (value: string) => void;
+  value?: string
 }
 
 interface Option {

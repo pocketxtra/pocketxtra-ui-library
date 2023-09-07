@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import { ProgressBarComponentInterface } from "../../interface/ProgressbarInterface/ProgressBar";
 import {
@@ -8,10 +8,13 @@ import {
 import Slider from "@react-native-community/slider";
 import { Colors } from "../../theme/ColorsConstant";
 
-export const ProgressBarComponent: React.FC<ProgressBarComponentInterface & { changeValue: (text: string) => void }> = ({
+export const ProgressBarComponent: React.FC<
+  ProgressBarComponentInterface & { changeValue: (text: string) => void }
+> = ({
   minimumValue,
   maximumValue,
   step,
+  userValue = 0,
   textColor = Colors.textColor,
   textFontSize = 2,
   textMarginBottom = 2,
@@ -19,9 +22,15 @@ export const ProgressBarComponent: React.FC<ProgressBarComponentInterface & { ch
   minimumTrackTintColor,
   maximumTrackTintColor,
   thumbTintColor = "yellow",
-  changeValue= () => { },
+  changeValue = () => {},
 }) => {
   const [value, setValue] = useState<number>(0);
+
+  useEffect(() => {
+    if (userValue) {
+      setValue(userValue);
+    }
+  }, [userValue]);
 
   const onValueChange = (newValue) => {
     setValue(newValue);
@@ -37,7 +46,9 @@ export const ProgressBarComponent: React.FC<ProgressBarComponentInterface & { ch
           marginBottom: responsiveHeight(textMarginBottom),
         }}
       >
-        {value>=maximumValue?`more than ${maximumValue}`:`size : ${Math.round(value)}`}
+        {value >= maximumValue
+          ? `more than ${maximumValue}`
+          : `size : ${Math.round(value)}`}
       </Text>
       <Slider
         style={{ width: responsiveWidth(100), ...sliderStyle }}

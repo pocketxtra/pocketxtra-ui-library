@@ -6,7 +6,7 @@ import {
   Animated,
   Text,
   Image,
-  Pressable
+  Pressable,
 } from "react-native";
 import {
   responsiveHeight,
@@ -15,9 +15,11 @@ import {
 } from "react-native-responsive-dimensions";
 import Pen from "react-native-vector-icons/Ionicons";
 import { ExpandableWithSelectionInterface } from "../../interface/expandable/expandableWithSelectionInterface";
-import {Colors} from '../../theme/ColorsConstant'
+import { Colors } from "../../theme/ColorsConstant";
 
-export const ExpandableWithSelection: React.FC<ExpandableWithSelectionInterface> = ({
+export const ExpandableWithSelection: React.FC<
+  ExpandableWithSelectionInterface
+> = ({
   expandableBgColor = Colors.borderColor,
   themeBackgroundColor = Colors.backgroundColor,
   borderRadius = 3,
@@ -32,7 +34,7 @@ export const ExpandableWithSelection: React.FC<ExpandableWithSelectionInterface>
   imageSource = { uri: "https://picsum.photos/700" },
   imageHeight = 50,
   imageWidth = 50,
-  successColor =Colors.activeOutlineColor,
+  successColor = Colors.activeOutlineColor,
   iconColor = Colors.iconColor,
   infoIconSize = 20,
   mainIconSize = 25,
@@ -40,17 +42,19 @@ export const ExpandableWithSelection: React.FC<ExpandableWithSelectionInterface>
   descriptionFontSize = 1.5,
   titleColor = Colors.textColor,
   descriptionFontColor = Colors.textColor,
-  onSelected
+  onSelected,
+  selected,
 }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const [mainIconColor, setmainIconColor] = React.useState(iconColor);
   const [buttonText, setButtonText] = React.useState("Select");
+  const [value, setValue] = useState(true);
 
   const handlePressButton = () => {
     setIsExpanded(!isExpanded);
     setmainIconColor(successColor);
     setButtonText("Selected");
-    onSelected()
+    onSelected();
   };
 
   const ExpandableView: React.FC<{ expanded: boolean }> = ({ expanded }) => {
@@ -64,6 +68,16 @@ export const ExpandableWithSelection: React.FC<ExpandableWithSelectionInterface>
       }).start();
     }, [expanded, height]);
 
+    useEffect(() => {
+      if (!selected) {
+        setmainIconColor(iconColor);
+        setButtonText("Select");
+      } else {
+        setmainIconColor(successColor);
+        setButtonText("Selected");
+      }
+    }, [selected]);
+
     return (
       <Animated.View
         style={[
@@ -72,12 +86,12 @@ export const ExpandableWithSelection: React.FC<ExpandableWithSelectionInterface>
             backgroundColor: expandableBgColor,
             borderRadius: responsiveWidth(borderRadius),
             overflow: "hidden",
-            width: '100%'
+            width: "100%",
           },
         ]}
       >
         <TouchableOpacity onPress={() => setIsExpanded(!isExpanded)}>
-          <View style={{ alignSelf: "center", width: '80%' }}>
+          <View style={{ alignSelf: "center", width: "80%" }}>
             <Image
               source={{ uri: imageSource.uri }}
               style={{
@@ -89,8 +103,24 @@ export const ExpandableWithSelection: React.FC<ExpandableWithSelectionInterface>
               }}
             />
 
-            <Text style={{fontSize: responsiveFontSize(titleFontSize), marginBottom: '2%', color:titleColor}}>{title}</Text>
-            <Text style={{textAlign: 'justify', fontSize: responsiveFontSize(descriptionFontSize), color: descriptionFontColor }}>{titleDescription}</Text>
+            <Text
+              style={{
+                fontSize: responsiveFontSize(titleFontSize),
+                marginBottom: "2%",
+                color: titleColor,
+              }}
+            >
+              {title}
+            </Text>
+            <Text
+              style={{
+                textAlign: "justify",
+                fontSize: responsiveFontSize(descriptionFontSize),
+                color: descriptionFontColor,
+              }}
+            >
+              {titleDescription}
+            </Text>
             <Pressable
               onPress={handlePressButton}
               style={{
@@ -102,7 +132,7 @@ export const ExpandableWithSelection: React.FC<ExpandableWithSelectionInterface>
                 marginTop: responsiveWidth(10),
                 alignItems: "center",
                 justifyContent: "center",
-                marginBottom: responsiveWidth(10)
+                marginBottom: responsiveWidth(10),
               }}
             >
               <Text
@@ -121,48 +151,62 @@ export const ExpandableWithSelection: React.FC<ExpandableWithSelectionInterface>
   };
 
   return (
-   
-      <View
-        style={{
-          width: responsiveWidth(width),
-          backgroundColor: themeBackgroundColor,
-        }}
-      >
-        {isExpanded && (
-          <TouchableOpacity
-            onPress={() => {
-              setIsExpanded(!isExpanded);
-            }}
+    <View
+      style={{
+        width: responsiveWidth(width),
+        backgroundColor: themeBackgroundColor,
+      }}
+    >
+      {isExpanded && (
+        <TouchableOpacity
+          onPress={() => {
+            setIsExpanded(!isExpanded);
+          }}
+          style={{
+            width: "100%",
+            height: responsiveHeight(height),
+            backgroundColor: expandableBgColor,
+            justifyContent: "center",
+            borderRadius: responsiveWidth(borderRadius),
+          }}
+        >
+          <View
             style={{
-              width: '100%',
-              height: responsiveHeight(height),
-              backgroundColor: expandableBgColor,
-              justifyContent: "center",
-              borderRadius: responsiveWidth(borderRadius),
+              flexDirection: "row",
+              justifyContent: "space-between",
+              width: "90%",
+              alignSelf: "center",
             }}
           >
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-between" ,  width: '90%', alignSelf: 'center'}}
-            >
-              <View>
-                <Text
-                  style={{
-                    color: textColor,
-                    fontSize: responsiveFontSize(textSize),
-                  }}
-                >
-                  {title}
-                </Text>
-              </View>
-              <View style={{ flexDirection: "row", justifyContent: 'space-between', alignItems: 'center' }}>
-                <Pen name={mainIcon} size={mainIconSize} color={mainIconColor} style={{marginRight: '4%'}} />
-                <Pen name={infoIcon} size={infoIconSize} color={iconColor}/>
-              </View>
+            <View>
+              <Text
+                style={{
+                  color: textColor,
+                  fontSize: responsiveFontSize(textSize),
+                }}
+              >
+                {title}
+              </Text>
             </View>
-          </TouchableOpacity>
-        )}
-        <ExpandableView expanded={isExpanded} />
-      </View>
-    
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Pen
+                name={mainIcon}
+                size={mainIconSize}
+                color={mainIconColor}
+                style={{ marginRight: "4%" }}
+              />
+              <Pen name={infoIcon} size={infoIconSize} color={iconColor} />
+            </View>
+          </View>
+        </TouchableOpacity>
+      )}
+      <ExpandableView expanded={isExpanded} />
+    </View>
   );
 };
