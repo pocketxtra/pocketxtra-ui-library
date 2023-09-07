@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { View, Text } from "react-native";
 import { RadioButton } from "react-native-paper";
 import {
@@ -26,10 +26,12 @@ export const CustomRadioButtonComponent: React.FC<
   headingTextColor = "green",
   unSelectedColor = "green",
   onValueChange,
+  value: propValue,
 }) => {
-  const [checked, setChecked] = React.useState<string>("");
+  const [checked, setChecked] = useState<string>(propValue);
 
   const handleValueChange = (value: any) => {
+    setChecked(value);
     onValueChange(value);
   };
 
@@ -37,6 +39,11 @@ export const CustomRadioButtonComponent: React.FC<
     flexDirections === "row"
       ? { flexDirection: "row", justifyContent: "space-around" }
       : { flexDirection: "column" };
+
+      useEffect(() => {
+        setChecked(propValue);
+      }, [propValue]);
+    
 
   return (
     <View style={{ ...containerStyle }}>

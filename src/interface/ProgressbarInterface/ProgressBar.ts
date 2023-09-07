@@ -9,4 +9,5 @@ export interface ProgressBarComponentInterface {
   minimumTrackTintColor?: string;
   maximumTrackTintColor?: string;
   thumbTintColor?: string;
+  userValue?:number;
 }
