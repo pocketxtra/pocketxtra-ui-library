@@ -5,7 +5,7 @@ import {
     responsiveFontSize
 } from "react-native-responsive-dimensions";
 import { HelperText, TextInput } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { InputFieldIconInterface } from '../../interface/inputFields/InputFieldWithIconInterface';
 import { Colors } from '../../theme/ColorsConstant';
 
@@ -32,8 +32,9 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
     marginLeft=0,
     marginRight=0,
     height=20,
-    featherIconName="dollar-sign",
+    fontAwesome5IconName="dollar-sign",
     value="",
+    textAlign="auto",
     onChangeText = () => { },
 }) => {
     const [text, setText] = useState<string>("");
@@ -53,6 +54,7 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
                     alignSelf: 'center',
                     width: responsiveWidth(width),
                     fontSize: responsiveFontSize(fontSize),
+                    textAlign:textAlign,
                     height:responsiveWidth(height),
                     marginTop: responsiveHeight(marginTop),
                     marginBottom: responsiveHeight(marginBottom),
@@ -72,7 +74,7 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
                 outlineStyle={{ borderRadius: responsiveWidth(borderRadius) }}
                 value={text}
                 disabled={disabled}
-                right={<TextInput.Icon icon={(props) => <Icon name={featherIconName} color={iconColor} size={responsiveWidth(iconSize)} />} />}
+                right={<TextInput.Icon icon={(props) => <Icon name={fontAwesome5IconName} color={iconColor} size={responsiveWidth(iconSize)} />} />}
             />
             {error && errorMessage && (
                 <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>
