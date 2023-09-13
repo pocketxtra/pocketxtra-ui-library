@@ -165,25 +165,25 @@ export const ImagePickerComponent: React.FC<ImagePickerComponentInterface & { on
                             />
                         ) : (
                             <View style={{ flex: 1 }}>
-                                <Image source={{ uri: image }} style={{ flex: 0.8 }} resizeMode="contain" />
+                                <Image source={{ uri: image }} style={{ flex: 0.9 }} resizeMode="contain" />
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', flex: 0.2 }}>
-                                    <Pressable onPress={retakePicture} style={{ alignItems: 'center', paddingBottom: responsiveWidth(5) }}>
-                                        <RetakeIcon name="camera-retake" size={responsiveWidth(15)} color={iconColor} />
+                                    <Pressable onPress={retakePicture} style={{ alignItems: 'center' }}>
+                                        <RetakeIcon name="camera-retake" size={responsiveWidth(13)} color={iconColor} />
                                     </Pressable>
-                                    <Pressable onPress={submitImage} style={{ alignItems: 'center', paddingBottom: responsiveWidth(5) }}>
-                                        <NextIcon name="arrow-alt-circle-right" size={responsiveWidth(13)} color={iconColor} />
+                                    <Pressable onPress={submitImage} style={{ alignItems: 'center' }}>
+                                        <NextIcon name="arrow-alt-circle-right" size={responsiveWidth(12)} color={iconColor} />
                                     </Pressable>
                                 </View>
                             </View>
                         )}
 
                         {showCamera && (
-                            <View style={{ flex: 0.2, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center' }}>
+                            <View style={{ flex: 0.2, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
                                 <Pressable onPress={toggleCameraType}>
-                                    <CameraIcon name="flip-camera-ios" size={responsiveWidth(15)} color={iconColor} />
+                                    <CameraIcon name="flip-camera-ios" size={responsiveWidth(13)} color={iconColor} style={{ alignItems: 'center' }}/>
                                 </Pressable>
                                 <Pressable onPress={clickPicture}>
-                                    <CameraIcon name="camera" size={responsiveWidth(15)} color={iconColor} />
+                                    <CameraIcon name="camera" size={responsiveWidth(13)} color={iconColor} style={{ alignItems: 'center' }}/>
                                 </Pressable>
                             </View>
                         )}
