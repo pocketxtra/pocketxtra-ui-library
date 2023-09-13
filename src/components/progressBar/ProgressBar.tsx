@@ -23,6 +23,7 @@ export const ProgressBarComponent: React.FC<
   maximumTrackTintColor,
   thumbTintColor = "yellow",
   changeValue = () => {},
+  stepSize = 5
 }) => {
   const [value, setValue] = useState<number>(0);
 
@@ -48,7 +49,7 @@ export const ProgressBarComponent: React.FC<
       >
         {value >= maximumValue
           ? `more than ${maximumValue}`
-          : `size : ${Math.round(value)}`}
+          : `Size : ${Math.round(value)}`}
       </Text>
       <Slider
         style={{ width: responsiveWidth(100), ...sliderStyle }}
@@ -60,6 +61,7 @@ export const ProgressBarComponent: React.FC<
         step={step}
         thumbTintColor={thumbTintColor}
         onValueChange={onValueChange}
+        step = {stepSize}
       />
     </View>
   );
