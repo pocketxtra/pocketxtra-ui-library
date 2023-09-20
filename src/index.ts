@@ -19,7 +19,7 @@ export {
 export { NavigationBar } from "./components/navigation/index";
 export { ProgressBarComponent } from "./components/progressBar/index";
 export { CustomRadioButtonComponent } from "./components/RadioButton/index";
-export { RangePickerComponent } from "./components/rangepicker/index";
+export { RangePickerComponent,RangeSelector } from "./components/rangepicker/index";
 export { SearchBar } from "./components/searchBar/index";
 export { CustomSegmentedButtonsComponent } from "./components/SegmentedButtons/index";
 export {PageControlCustom} from "./components/pageControl/index"
