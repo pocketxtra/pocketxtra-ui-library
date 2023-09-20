@@ -17,7 +17,7 @@ export const TimePicker: React.FC<
   backgroundColor = Colors.backgroundColor,
   mode = "outlined",
   width = 100,
-  height = 15,
+  height = 20,
   activeOutlineColor = Colors.activeOutlineColor,
   outlineColor = Colors.outlineColor,
   textColor = Colors.textColor,
@@ -54,7 +54,7 @@ export const TimePicker: React.FC<
     }${minutes} ${amOrPm}`;
 
     console.log(formattedTime);
-    setPickedTime(formattedTime);
+    setPickedTime(date);
     setText(formattedTime);
     hideTimePicker();
   };
@@ -103,10 +103,9 @@ export const TimePicker: React.FC<
                 color={iconColor}
                 size={responsiveWidth(iconSize)}
                 onPress={showTimePicker}
-                style={{marginTop:responsiveWidth(4)}}
+                style={{ marginTop: responsiveWidth(2) }}
               />
             )}
-            style={{ marginTop: responsiveWidth(3) }}
           />
         }
       />
