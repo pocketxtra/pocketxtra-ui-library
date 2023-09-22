@@ -9,7 +9,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { NavigationBarInterface } from "../../interface/navigation/NavigationBarInterface";
-import {Colors} from '../../theme/ColorsConstant'
+import { Colors } from "../../theme/ColorsConstant";
 const Tab = createBottomTabNavigator();
 
 export const NavigationBar: React.FC<NavigationBarInterface> = ({
@@ -18,12 +18,15 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
   tabBarActiveTintColor = Colors.activeOutlineColor,
   tabBarInactiveTintColor = Colors.outlineColor,
   iconColor = Colors.iconColor,
-  createIconSize = 20
+  createIconSize = 20,
+  middleIconStyle,
 }) => {
   const mergedTabBarStyle = StyleSheet.compose(
     styles.defaultTabBarStyle,
-    tabBarStyle,
+    tabBarStyle
   );
+
+  const middleIcon = StyleSheet.compose(styles.iconStyle, middleIconStyle);
 
   return (
     <NavigationContainer>
@@ -42,13 +45,16 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
                 ? `${selectedTab.icon}-sharp`
                 : `${selectedTab.icon}-outline`;
 
-              if (selectedTab.name === "Create") {
+              if (
+                selectedTab.name === "Create" ||
+                selectedTab.name === "Live"
+              ) {
                 return (
-                  <View>
+                  <View style={middleIcon}>
                     <Ionicons
-                      name={selectedTab.icon}
-                      size= {responsiveHeight(createIconSize)}
-                      color= {iconColor}
+                      name={iconName}
+                      size={responsiveHeight(createIconSize)}
+                      color={iconColor}
                     />
                   </View>
                 );
@@ -88,5 +94,15 @@ const styles = StyleSheet.create({
     paddingTop: responsiveWidth(5),
     height: responsiveWidth(30),
     backgroundColor: "#000000",
+  },
+  iconStyle: {
+    backgroundColor: "white",
+    height: responsiveHeight(8),
+    width: responsiveHeight(8),
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 30,
+    marginTop: responsiveHeight(2),
   },
 });

@@ -8,23 +8,24 @@ import {
 } from "react-native-responsive-dimensions";
 import { BlurView } from "expo-blur";
 import { DashboardUpcomingEventCardInterface } from "../../interface/cards/DashboardUpcomingEventCardInterface";
-import { Colors} from "../../theme/ColorsConstant"
+import { Colors } from "../../theme/ColorsConstant";
 
 export const DashboardUpcomingEventCard: React.FC<
-DashboardUpcomingEventCardInterface
+  DashboardUpcomingEventCardInterface
 > = ({
   width = 100,
   height = 70,
-  eventName = '',
+  eventName = "",
   textColor = Colors.textColor,
-  eventDate = '',
-  companyName = '',
+  eventDate = "",
+  companyName = "",
   borderRadius = 8,
-  imageSource = { uri: 'https://picsum.photos/700' },
+  imageSource = { uri: "https://picsum.photos/700" },
   eventNameSize = 2,
   eventDateTextColor = Colors.textColor,
   eventDateTextSize = 2,
-  companyNameTextSize = 2
+  companyNameTextSize = 2,
+  intensity = 20,
 }) => {
   return (
     <Card
@@ -53,7 +54,7 @@ DashboardUpcomingEventCardInterface
             flex: 1,
           },
         ]}
-        intensity={30}
+        intensity={intensity}
         tint="dark"
       >
         <Text
@@ -61,7 +62,7 @@ DashboardUpcomingEventCardInterface
             color: textColor,
             marginRight: responsiveWidth(12),
             fontSize: responsiveFontSize(eventNameSize),
-            marginBottom: responsiveHeight(1.25),
+            marginBottom: responsiveHeight(1),
           }}
         >
           {eventName}
@@ -71,7 +72,7 @@ DashboardUpcomingEventCardInterface
             color: eventDateTextColor,
             marginRight: responsiveWidth(15),
             fontSize: responsiveFontSize(eventDateTextSize),
-            marginBottom: responsiveHeight(0.3),
+            marginBottom: responsiveHeight(1.3),
           }}
         >
           {eventDate}
@@ -91,7 +92,7 @@ DashboardUpcomingEventCardInterface
             color: textColor,
             marginRight: responsiveWidth(12),
             fontSize: responsiveFontSize(companyNameTextSize),
-            marginBottom: responsiveWidth(3),
+            marginBottom: responsiveWidth(0.5),
           }}
         >
           {companyName}
@@ -103,12 +104,12 @@ DashboardUpcomingEventCardInterface
 
 const styles = StyleSheet.create({
   cardContent: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
     left: 0,
     right: 0,
-    padding: responsiveWidth(4),
-    height: 'auto',
-    minHeight: 'auto',
+    padding: responsiveWidth(2),
+    height: "auto",
+    minHeight: "auto",
   },
 });
