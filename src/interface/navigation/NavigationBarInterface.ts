@@ -5,7 +5,16 @@ export interface NavigationBarInterface {
     tabBarInactiveTintColor?: string,
     height?: number,
     iconColor?: string,
-    createIconSize?: number
+    createIconSize?: number,
+    middleIconStyle: {
+        backgroundColor?: string;
+        height?: number;
+        width?: number;
+        display?: string;
+        justifyContent?: string;
+        borderRadius?: number;
+        marginTop?: number;
+    }
 }
 
 interface TabScreen {
