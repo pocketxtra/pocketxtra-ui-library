@@ -24,3 +24,4 @@ export { SearchBar } from "./components/searchBar/index";
 export { CustomSegmentedButtonsComponent } from "./components/SegmentedButtons/index";
 export {PageControlCustom} from "./components/pageControl/index"
 export {WorkDayPreference} from "./components/workday/index"
+export {Icons} from "./components/iconFolder/Icons"
