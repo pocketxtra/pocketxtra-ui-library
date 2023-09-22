@@ -62,7 +62,7 @@ export const SearchBar: React.FC<
           onChangeText(text);
         }}
         autoCapitalize="none"
-        blurOnSubmit={false}
+        blurOnSubmit={true}
         keyboardType="default"
         returnKeyType="done"
         outlineStyle={{ borderRadius: responsiveWidth(borderRadius) }}
