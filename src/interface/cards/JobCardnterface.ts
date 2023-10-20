@@ -1,0 +1,31 @@
+export interface JobCardInterface {
+    title?: string;
+    titleColor?: string;
+    titleFontSize?: number;
+    backgroundColor?: string;
+    locationName?: string;
+    approvedText?: string;
+    appliedText?: string;
+    totalTotal?: number;
+    textColor?: string;
+    approvedNo?: number;
+    appliedNo?: number;
+    totalNo?: number;
+    containerPadding?: number;
+    buttonText?: string;
+    buttonColor?: string;
+    buttonTextColor?: string;
+    buttonBorderColor?: string;
+    buttonWidth?: number;
+    buttonHeight?: number;
+    buttonTextSize?: number;
+    buttonBorderWidth?: number;
+    fontFamily?: string;
+    height?: number;
+    width?: number;
+    borderRadius?: number;
+    locationBoxWidth?: number;
+    rowTwoWidth?: number;
+    imageWidth?: number;
+    imageHeight?: number;
+  }

@@ -36,6 +36,7 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
     value="",
     textAlign="auto",
     onChangeText = () => { },
+    fontFamily,
 }) => {
     const [text, setText] = useState<string>("");
     useEffect(()=>{
@@ -60,6 +61,7 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
                     marginBottom: responsiveHeight(marginBottom),
                     marginLeft: responsiveWidth(marginLeft),
                     marginRight: responsiveWidth(marginRight),
+                    fontFamily : fontFamily,
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
@@ -77,7 +79,7 @@ export const InputFieldWithIcon: React.FC<InputFieldIconInterface & { onChangeTe
                 right={<TextInput.Icon icon={(props) => <Icon name={fontAwesome5IconName} color={iconColor} size={responsiveWidth(iconSize)} />} />}
             />
             {error && errorMessage && (
-                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>
+                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor, fontFamily : fontFamily, }}>{errorMessage}</HelperText>
             )}
         </>
     );

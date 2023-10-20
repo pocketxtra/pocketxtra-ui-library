@@ -33,6 +33,7 @@ export const SearchBar: React.FC<
   marginLeft = 0,
   marginRight = 0,
   height = 20,
+  fontFamily,
   onChangeText = () => {},
 }) => {
   const [text, setText] = useState<string>("");
@@ -52,6 +53,7 @@ export const SearchBar: React.FC<
           marginBottom: responsiveHeight(marginBottom),
           marginLeft: responsiveWidth(marginLeft),
           marginRight: responsiveWidth(marginRight),
+          fontFamily : fontFamily,
         }}
         activeOutlineColor={activeOutlineColor}
         placeholder={placeHolder}
@@ -83,7 +85,7 @@ export const SearchBar: React.FC<
       {error && errorMessage && (
         <HelperText
           type="error"
-          style={{ marginLeft: responsiveWidth(3), color: errorColor }}
+          style={{ marginLeft: responsiveWidth(3), color: errorColor,  fontFamily : fontFamily, }}
         >
           {errorMessage}
         </HelperText>

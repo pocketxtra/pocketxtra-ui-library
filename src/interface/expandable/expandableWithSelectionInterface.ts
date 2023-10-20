@@ -23,6 +23,7 @@ export interface ExpandableWithSelectionInterface {
   descriptionFontColor?: string;
   onSelected: () => void;
   selected?: boolean;
+  fontFamily?: string;
 }
 
 interface ImageSource {

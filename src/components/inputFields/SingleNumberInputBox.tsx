@@ -23,6 +23,7 @@ export const SingleNumberInputBox: React.FC<SingleNumberInputBoxInterface & { on
     marginRight=0,
     value="",
     onChangeText = () => { },
+    fontFamily,
 }) => {
     const [text, setText] = useState<string>();
     useEffect(()=>{
@@ -45,7 +46,8 @@ export const SingleNumberInputBox: React.FC<SingleNumberInputBoxInterface & { on
                     textAlignVertical: 'center',
                     height:responsiveHeight(height),
                     marginLeft:responsiveWidth(marginLeft),
-                    marginRight:responsiveWidth(marginRight)
+                    marginRight:responsiveWidth(marginRight),
+                    fontFamily : fontFamily,
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}

@@ -31,6 +31,7 @@ export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (t
     marginRight=0,
     value="",
     onChangeText = () => { },
+     fontFamily,
 }) => {
     const [areaText, setAreaText] = useState<string>("");
 
@@ -54,6 +55,7 @@ export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (t
                     marginBottom: responsiveHeight(marginBottom),
                     marginLeft: responsiveWidth(marginLeft),
                     marginRight: responsiveWidth(marginRight),
+                    fontFamily : fontFamily,
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
@@ -71,7 +73,7 @@ export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (t
                 numberOfLines={numberOfLines}
             />
             {error && errorMessage && (
-                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor }}>{errorMessage}</HelperText>
+                <HelperText type="error" style={{ marginLeft: responsiveWidth(3), color: errorColor,  fontFamily : fontFamily, }}>{errorMessage}</HelperText>
             )}
         </>
     );

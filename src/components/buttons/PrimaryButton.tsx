@@ -30,6 +30,7 @@ export const PrimaryButton: React.FC<
   marginLeftButton = 0,
   marginRightButton = 0,
   onPress = () => {},
+  fontfamily
 }) => {
   return (
     <Button
@@ -47,6 +48,7 @@ export const PrimaryButton: React.FC<
         marginBottom: responsiveHeight(marginBottomButton),
         marginLeft: responsiveWidth(marginLeftButton),
         marginRight: responsiveWidth(marginRightButton),
+        fontFamily: fontFamily,
       }}
       labelStyle={{
         fontSize: responsiveFontSize(fontSize),

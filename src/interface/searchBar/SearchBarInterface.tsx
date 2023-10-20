@@ -20,4 +20,5 @@ export interface SearchBarInterface {
     marginLeft?:number,
     marginRight?:number,
     height?:number,
+    fontFamily?: string,
 }

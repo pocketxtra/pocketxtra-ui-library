@@ -33,6 +33,7 @@ export const TertiaryButton: React.FC<
   marginRightButton = 0,
   iconColor = Colors.iconColor,
   materialIconName="verified",
+  fontfamily,
 }) => {
   return (
     <Button
@@ -67,7 +68,8 @@ export const TertiaryButton: React.FC<
         textAlignVertical: "center",
         color: color,
         marginTop: responsiveWidth(marginTopLabel),
-        marginBottom: responsiveWidth(marginBottomLabel)
+        marginBottom: responsiveWidth(marginBottomLabel),
+        fontFamily: fontFamily,
       }}
       contentStyle={{ alignSelf: "center", flexDirection: "row-reverse" }}
       onPress={onPress}

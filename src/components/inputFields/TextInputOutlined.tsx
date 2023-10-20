@@ -36,6 +36,7 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
     value="",
     errorFontSize=2,
     onChangeText = () => { },
+    fontFamily,
 }) => {
     const [text, setText] = useState<string>("");
     useEffect(()=>{
@@ -61,6 +62,7 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
                     marginBottom: responsiveHeight(marginBottom),
                     marginLeft: responsiveWidth(marginLeft),
                     marginRight: responsiveWidth(marginRight),
+                    fontFamily : fontFamily,
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
@@ -80,7 +82,7 @@ export const TextInputOutlined: React.FC<TextInputOutlinedInterface & { onChange
             </View>
             <View>
             {error && errorMessage && (
-                <HelperText type="error" style={{ color: errorColor, fontSize:responsiveFontSize(errorFontSize)}}>{errorMessage}</HelperText>
+                <HelperText type="error" style={{ color: errorColor, fontSize:responsiveFontSize(errorFontSize),  fontFamily : fontFamily}}>{errorMessage}</HelperText>
             )}
             </View>
         </>

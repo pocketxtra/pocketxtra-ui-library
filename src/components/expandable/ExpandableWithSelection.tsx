@@ -44,6 +44,7 @@ export const ExpandableWithSelection: React.FC<
   descriptionFontColor = Colors.textColor,
   onSelected,
   selected,
+  fontFamily,
 }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const [mainIconColor, setmainIconColor] = React.useState(iconColor);
@@ -108,6 +109,7 @@ export const ExpandableWithSelection: React.FC<
                 fontSize: responsiveFontSize(titleFontSize),
                 marginBottom: "2%",
                 color: titleColor,
+                fontFamily : fontFamily,
               }}
             >
               {title}
@@ -117,6 +119,7 @@ export const ExpandableWithSelection: React.FC<
                 textAlign: "justify",
                 fontSize: responsiveFontSize(descriptionFontSize),
                 color: descriptionFontColor,
+                fontFamily : fontFamily,
               }}
             >
               {titleDescription}
@@ -139,6 +142,7 @@ export const ExpandableWithSelection: React.FC<
                 style={{
                   color: "#fff",
                   textAlign: "center",
+                  fontFamily : fontFamily,
                 }}
               >
                 {buttonText}
@@ -183,6 +187,7 @@ export const ExpandableWithSelection: React.FC<
                 style={{
                   color: textColor,
                   fontSize: responsiveFontSize(textSize),
+                  fontFamily : fontFamily,
                 }}
               >
                 {title}

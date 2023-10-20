@@ -26,6 +26,7 @@ export const DashboardUpcomingEventCard: React.FC<
   eventDateTextSize = 2,
   companyNameTextSize = 2,
   intensity = 20,
+  fontFamily
 }) => {
   return (
     <Card
@@ -63,6 +64,7 @@ export const DashboardUpcomingEventCard: React.FC<
             marginRight: responsiveWidth(12),
             fontSize: responsiveFontSize(eventNameSize),
             marginBottom: responsiveHeight(1),
+            fontFamily: fontFamily,
           }}
         >
           {eventName}
@@ -73,6 +75,7 @@ export const DashboardUpcomingEventCard: React.FC<
             marginRight: responsiveWidth(15),
             fontSize: responsiveFontSize(eventDateTextSize),
             marginBottom: responsiveHeight(1.3),
+            fontFamily: fontFamily,
           }}
         >
           {eventDate}
@@ -83,6 +86,7 @@ export const DashboardUpcomingEventCard: React.FC<
             marginRight: responsiveWidth(12),
             fontSize: responsiveFontSize(eventDateTextSize),
             marginBottom: responsiveHeight(0.5),
+            fontFamily: fontFamily,
           }}
         >
           Posted By
@@ -93,6 +97,7 @@ export const DashboardUpcomingEventCard: React.FC<
             marginRight: responsiveWidth(12),
             fontSize: responsiveFontSize(companyNameTextSize),
             marginBottom: responsiveWidth(0.5),
+            fontFamily: fontFamily,
           }}
         >
           {companyName}

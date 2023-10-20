@@ -17,4 +17,5 @@ export interface PrimaryButtonInterface {
   marginBottomButton?: number;
   marginLeftButton?: number;
   marginRightButton?: number;
+  fontFamily?: string;
 }

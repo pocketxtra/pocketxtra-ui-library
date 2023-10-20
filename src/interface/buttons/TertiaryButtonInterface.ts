@@ -19,4 +19,5 @@ export interface TertiaryButtonInterface {
   marginLeftButton?: number;
   marginRightButton?: number;
   materialIconName?:string;
+  fontFamily?: string;
 }

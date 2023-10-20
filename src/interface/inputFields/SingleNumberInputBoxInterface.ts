@@ -13,4 +13,5 @@ export interface SingleNumberInputBoxInterface{
     marginLeft?:number,
     marginRight?:number,
     value?:string,
+    fontFamily?: string,
 }

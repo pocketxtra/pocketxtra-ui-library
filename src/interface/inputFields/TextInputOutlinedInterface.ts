@@ -23,5 +23,6 @@ export interface TextInputOutlinedInterface {
     marginRight?:number,
     height?:number,
     value?:string,
-    errorFontSize?:number
+    errorFontSize?:number,
+    fontFamily?: string,
 }

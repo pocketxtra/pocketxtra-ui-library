@@ -24,4 +24,5 @@ export interface InputFieldIconInterface {
     fontAwesome5IconName?:string,
     value?:string,
     textAlign?:string,
+    fontFamily?: string,
 }
