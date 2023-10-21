@@ -15,7 +15,6 @@ export interface DashboardUpcomingEventCardInterface {
   companyNameTextSize?: number;
   intensity?: number;
   fontFamily?: string;
-}
 
 interface ImageSource {
   uri?: string;

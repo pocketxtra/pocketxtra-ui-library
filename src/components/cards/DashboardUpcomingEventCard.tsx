@@ -27,6 +27,7 @@ export const DashboardUpcomingEventCard: React.FC<
   companyNameTextSize = 2,
   intensity = 20,
   fontFamily
+
 }) => {
   return (
     <Card

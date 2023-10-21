@@ -48,7 +48,6 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
     },
   });
   
-
   return (
     <NavigationContainer independent={true}>
       <Tab.Navigator
@@ -72,7 +71,10 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
                 );
               }
 
-              if (selectedTab.name === "Create") {
+              if (
+                selectedTab.name === "Create" ||
+                selectedTab.name === "Live"
+              ) {
                 return (
                   <View style={middleIcon}>
                     <Icons
