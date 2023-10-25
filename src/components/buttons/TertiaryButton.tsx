@@ -33,7 +33,7 @@ export const TertiaryButton: React.FC<
   marginRightButton = 0,
   iconColor = Colors.iconColor,
   materialIconName="verified",
-  fontfamily,
+  fontFamily,
 }) => {
   return (
     <Button

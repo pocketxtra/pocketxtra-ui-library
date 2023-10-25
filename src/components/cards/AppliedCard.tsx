@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import { AppliedCardInterface } from "../../interface/cards/AppliedCardInterface";
 import {
@@ -102,13 +102,13 @@ export const AppliedCard: React.FC<AppliedCardInterface> = ({
         waitingStyle: {
             width: responsiveWidth(13),
             height: responsiveHeight(6),
-            backgroundColor: colors.TextInputBackground ,
+            backgroundColor: Colors.backgroundColor ,
             borderRadius: 30,
             borderWidth: 1,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            borderColor: colors.TextInputBackground
+            borderColor: Colors.backgroundColor, 
         }
     });
 
