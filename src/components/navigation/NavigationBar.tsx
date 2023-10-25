@@ -52,7 +52,9 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
                 );
               }
 
-              if (selectedTab.name === "Create") {
+              if (
+                selectedTab.name === "Create"
+              ) {
                 return (
                   <View style={middleIcon}>
                     <Icons

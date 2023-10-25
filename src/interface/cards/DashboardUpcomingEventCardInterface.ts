@@ -16,7 +16,6 @@ export interface DashboardUpcomingEventCardInterface {
   intensity?: number;
   fontFamily?: string;
 }
-
 interface ImageSource {
   uri?: string;
 }
