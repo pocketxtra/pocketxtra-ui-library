@@ -58,11 +58,16 @@ export const AppliedCard: React.FC<AppliedCardInterface> = ({
   middleHrRowWidth=0.5,
   organiserApprovalButtonBorderColor= Colors.borderColor,
   waitingIconColor = Colors.iconColor,
-  buttonTwoOnPress = Colors.iconColor,
-  buttonOneOnPress =  Colors.iconColor,
+  waitingOnPress,
+  buttonTwoOnPress,
+  buttonOneOnPress,
   buttonOneIsVisible = true,
   waitingIsVisible = true,
-  buttonTwoIsVisible = true
+  buttonTwoIsVisible = true,
+  waitingWidth = 13,
+  waitighHeight = 6,
+  waitingBackgroundColor = Colors.backgroundColor,
+  waitingBorderColor = Colors.borderColor
 }) => {
     const styles = StyleSheet.create({
         container: {
@@ -100,15 +105,15 @@ export const AppliedCard: React.FC<AppliedCardInterface> = ({
             borderRadius: 30,
         },
         waitingStyle: {
-            width: responsiveWidth(13),
-            height: responsiveHeight(6),
-            backgroundColor: Colors.backgroundColor ,
+            width: responsiveWidth(waitingWidth),
+            height: responsiveHeight(waitighHeight),
+            backgroundColor:  waitingBackgroundColor  ,
             borderRadius: 30,
             borderWidth: 1,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            borderColor: Colors.backgroundColor, 
+            borderColor: waitingBorderColor, 
         }
     });
 
@@ -239,7 +244,7 @@ export const AppliedCard: React.FC<AppliedCardInterface> = ({
 
                     {waitingIsVisible === true ?
                         <View style={styles.waitingStyle}>
-                            <Pressable>
+                            <Pressable onPress={waitingOnPress}>
                                 <Icons name={"timer"} color={waitingIconColor} size={35}/>
                             </Pressable>
                         </View> : null
@@ -264,8 +269,6 @@ export const AppliedCard: React.FC<AppliedCardInterface> = ({
                             /> :
                             null
                     }
-
-
                 </View>
             </View>
         </View>
