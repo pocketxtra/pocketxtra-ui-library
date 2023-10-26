@@ -1,0 +1,23 @@
+export interface TertiaryButtonInterface {
+  title?: string;
+  buttonColor?: string;
+  height?: number;
+  width?: number;
+  fontSize?: number;
+  color?: string;
+  borderColor?: string;
+  borderWidth?: number;
+  borderRadius?: number;
+  icon?: boolean;
+  iconColor?: string;
+  iconSize?: number;
+  disabled?: boolean;
+  marginTopLabel?: number;
+  marginBottomLabel?: number;
+  marginTopButton?: number;
+  marginBottomButton?: number;
+  marginLeftButton?: number;
+  marginRightButton?: number;
+  materialIconName?:string;
+  fontFamily?: string;
+}

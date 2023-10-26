@@ -36,4 +36,3 @@ yarn-error.*
 
 #lockfile 
 *.lock
-*-lock.json
