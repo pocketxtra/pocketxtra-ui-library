@@ -13,7 +13,9 @@ export const LiveEventCard: React.FC<LiveEventCardInterface> = ({
   stripColor = "#fff",
   svgWidth = 90,
   svgHeight = 27,
-  fontFamily
+  fontFamily,
+  liveColor = Colors.iconColor,
+  textColor = Colors.textColor
 
 }) => {
 const styles = StyleSheet.create({
@@ -39,10 +41,10 @@ const styles = StyleSheet.create({
  
   return (
     <View  >
-      <SvgComponent style={styles.container} fillColor = {stripColor} svgHeight = { svgHeight } svgWidth = { svgWidth }/>
+      <SvgComponent fillColor = {stripColor} svgHeight = { svgHeight } svgWidth = { svgWidth }/>
       <View style={styles.liveEvent}>
-        <Icons name='dot-circle' color={Colors.iconColor} size={20} />
-      <Text style={{color: Colors.iconColor,
+        <Icons name='dot-circle-o' color={ liveColor} size={20} />
+      <Text style={{color:  liveColor,
         fontFamily: fontFamily , marginLeft: responsiveWidth(2)}}>{liveText}</Text>
       </View>
       
@@ -50,11 +52,11 @@ const styles = StyleSheet.create({
       <Text style={{color: Colors.iconColor, fontFamily: fontFamily}}>
        {eventName}
       </Text>
-      <Text style={{color: Colors.iconColor, fontFamily: fontFamily}}>Paid By {paidBy}</Text>
+      <Text style={{color: textColor, fontFamily: fontFamily}}>Paid By {paidBy}</Text>
 
       </View>
       <View style={styles.time}>
-        <Text style={{color: Colors.iconColor, fontFamily: fontFamily}}>Starts at {startTime}</Text>
+        <Text style={{color: textColor, fontFamily: fontFamily}}>Starts at {startTime}</Text>
       </View>
     </View>
   )

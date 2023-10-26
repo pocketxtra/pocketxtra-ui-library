@@ -7,4 +7,6 @@ interface LiveEventCardInterface {
     svgWidth?: number;
     svgHeight?: number;
     fontFamily?: string;
+    liveColor?: string;
+    textColor?: string;
   }

@@ -46,4 +46,12 @@ export interface AppliedCardInterface {
     waitingIconColor?: string;
     buttonTwoOnPress?: (() => void);
     buttonOneOnPress?: (() => void);
+    waitingOnPress?: (() => void);
+    buttonOneIsVisible?: boolean;
+    waitingIsVisible?: boolean;
+    buttonTwoIsVisible?: boolean;
+    waitingWidth?: number;
+    waitighHeight?: number;
+    waitingBackgroundColor?: number;
+    waitingBorderColor?: number;
 }

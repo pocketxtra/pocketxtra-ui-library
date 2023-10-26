@@ -29,25 +29,6 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
 
   const middleIcon = StyleSheet.compose(styles.iconStyle, middleIconStyle);
 
-  const styles = StyleSheet.create({
-    defaultTabBarStyle: {
-      borderTopLeftRadius: responsiveWidth(7),
-      borderTopRightRadius: responsiveWidth(7),
-      paddingBottom: responsiveWidth(5),
-      paddingTop: responsiveWidth(5),
-      height: responsiveWidth(30),
-    },
-    iconStyle: {
-      height: responsiveHeight(8),
-      width: responsiveHeight(8),
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      borderRadius: 30,
-      marginTop: responsiveHeight(2),
-    },
-  });
-  
   return (
     <NavigationContainer independent={true}>
       <Tab.Navigator
@@ -72,8 +53,7 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
               }
 
               if (
-                selectedTab.name === "Create" ||
-                selectedTab.name === "Live"
+                selectedTab.name === "Create"
               ) {
                 return (
                   <View style={middleIcon}>
@@ -130,3 +110,23 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
     </NavigationContainer>
   );
 };
+
+  const styles = StyleSheet.create({
+    defaultTabBarStyle: {
+      borderTopLeftRadius: responsiveWidth(7),
+      borderTopRightRadius: responsiveWidth(7),
+      paddingBottom: responsiveWidth(5),
+      paddingTop: responsiveWidth(5),
+      height: responsiveWidth(30),
+    },
+    iconStyle: {
+      height: responsiveHeight(8),
+      width: responsiveHeight(8),
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      borderRadius: 30,
+      marginTop: responsiveHeight(2),
+    },
+  });
+  
