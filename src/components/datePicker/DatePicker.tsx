@@ -30,10 +30,14 @@ export const DatePicker: React.FC<
   iconSize = 8,
   placeholderTextColor = Colors.placeholderTextColor,
   onChangeDate = () => {},
+  minimumDate = null,
+  maximumDate = null,
 }) => {
   const [text, setText] = useState("");
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [PickedDate, setPickedDate] = useState("");
+
+  console.log("visible", isDatePickerVisible);
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -77,7 +81,6 @@ export const DatePicker: React.FC<
         textColor={textColor}
         onChangeText={(text) => {
           setText(text);
-          onChangeText(text);
         }}
         autoCapitalize="none"
         blurOnSubmit={false}
@@ -94,7 +97,7 @@ export const DatePicker: React.FC<
                 color={iconColor}
                 size={responsiveWidth(iconSize)}
                 onPress={showDatePicker}
-                style={{marginTop:responsiveWidth(2)}}
+                style={{ marginTop: responsiveWidth(2) }}
               />
             )}
           />
@@ -113,6 +116,8 @@ export const DatePicker: React.FC<
         mode="date"
         onConfirm={handleDateConfirm}
         onCancel={hideDatePicker}
+        minimumDate={minimumDate}
+        maximumDate={maximumDate}
       />
     </>
   );

@@ -5,9 +5,13 @@ export {
   AppliedCard,
   LiveEventCard,
   JobCard,
-  UserCard
+  UserCard,
 } from "./components/cards/index";
-export { DatePicker, TimePicker, SignupDatePicker } from "./components/datePicker/index";
+export {
+  DatePicker,
+  TimePicker,
+  SignupDatePicker,
+} from "./components/datePicker/index";
 export {
   ExpandableWithInputs,
   ExpandableWithSelection,
@@ -21,11 +25,13 @@ export {
   TextInputOutlined,
 } from "./components/inputFields/index";
 export { NavigationBar } from "./components/navigation/index";
-export { ProgressBarComponent } from "./components/progressBar/index";
 export { CustomRadioButtonComponent } from "./components/RadioButton/index";
-export { RangePickerComponent,RangeSelector } from "./components/rangepicker/index";
+export {
+  RangePickerComponent,
+  RangeSelector,
+} from "./components/rangepicker/index";
 export { SearchBar } from "./components/searchBar/index";
 export { CustomSegmentedButtonsComponent } from "./components/SegmentedButtons/index";
-export {PageControlCustom} from "./components/pageControl/index"
-export {WorkDayPreference} from "./components/workday/index"
-export {Icons} from "./components/iconFolder/Icons"
+export { PageControlCustom } from "./components/pageControl/index";
+export { WorkDayPreference } from "./components/workday/index";
+export { Icons } from "./components/iconFolder/Icons";
