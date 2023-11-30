@@ -29,20 +29,18 @@ export const JobCard: React.FC<JobCardInterface & { onPress?: () => void }> = ({
   buttonBorderColor = Colors.outlineColor,
   buttonWidth = 30,
   buttonHeight = 6,
-  
-  height=25,
-  width=85,
-  borderRadius=5,
-  locationBoxWidth=25,
-  rowTwoWidth=50,
-
+  imageUri = "https://picsum.photos/700",
+  height = 25,
+  width = 85,
+  borderRadius = 5,
+  locationBoxWidth = 25,
+  rowTwoWidth = 50,
   buttonTextSize = 1.6,
   fontFamily,
   buttonBorderWidth = 2,
   onPress = () => {},
-
   imageWidth = 18,
-  imageHeight = 10
+  imageHeight = 10,
 }) => {
   const styles = StyleSheet.create({
     container: {
@@ -67,11 +65,11 @@ export const JobCard: React.FC<JobCardInterface & { onPress?: () => void }> = ({
       display: "flex",
       flexDirection: "row",
     },
-    titleStyle : {
+    titleStyle: {
       color: titleColor,
       fontSize: responsiveFontSize(titleFontSize),
       fontFamily: fontFamily,
-    }
+    },
   });
   return (
     <View style={styles.container}>
@@ -81,7 +79,7 @@ export const JobCard: React.FC<JobCardInterface & { onPress?: () => void }> = ({
       </View>
 
       <View style={styles.flexDirection}>
-        <View style={{ paddingRight: responsiveWidth(4)}}>
+        <View style={{ paddingRight: responsiveWidth(4) }}>
           <View
             style={[
               styles.flexDirection,
@@ -92,41 +90,54 @@ export const JobCard: React.FC<JobCardInterface & { onPress?: () => void }> = ({
               },
             ]}
           >
-            <Text style={{color : textColor, fontFamily: fontFamily,}}>{approvedText}</Text>
-            <Text style={{color : textColor, fontFamily: fontFamily,}}>{appliedText}</Text>
-            <Text style={{color : textColor, fontFamily: fontFamily,}}>{totalTotal}</Text>
+            <Text style={{ color: textColor, fontFamily: fontFamily }}>
+              {approvedText}
+            </Text>
+            <Text style={{ color: textColor, fontFamily: fontFamily }}>
+              {appliedText}
+            </Text>
+            <Text style={{ color: textColor, fontFamily: fontFamily }}>
+              {totalTotal}
+            </Text>
           </View>
 
           <View
             style={[
               styles.flexDirection,
-              { justifyContent: "space-between", width: responsiveWidth(rowTwoWidth) },
+              {
+                justifyContent: "space-between",
+                width: responsiveWidth(rowTwoWidth),
+              },
             ]}
           >
-            <Text style={{color : textColor, fontFamily: fontFamily,}}>{approvedNo}</Text>
-            <Text style={{color : textColor, fontFamily: fontFamily,}}>{appliedNo}</Text>
-            <Text style={{color : textColor, fontFamily: fontFamily,}}>{totalNo}</Text>
+            <Text style={{ color: textColor, fontFamily: fontFamily }}>
+              {approvedNo}
+            </Text>
+            <Text style={{ color: textColor, fontFamily: fontFamily }}>
+              {appliedNo}
+            </Text>
+            <Text style={{ color: textColor, fontFamily: fontFamily }}>
+              {totalNo}
+            </Text>
           </View>
         </View>
-        <View style={{marginTop: responsiveHeight(1.5)}}>
+        <View style={{ marginTop: responsiveHeight(1.5) }}>
           <Image
-            source={{ uri: "https://picsum.photos/700" }}
+            source={{ uri: imageUri }}
             width={responsiveWidth(imageWidth)}
             height={responsiveHeight(imageHeight)}
           />
         </View>
       </View>
 
-      <View
-        style={{ alignSelf: "flex-start" }}
-      >
+      <View style={{ alignSelf: "flex-start" }}>
         <PrimaryButton
           title={buttonText}
           borderColor={buttonBorderColor}
           width={buttonWidth}
           height={buttonHeight}
           fontSize={buttonTextSize}
-          color= {buttonTextColor}
+          color={buttonTextColor}
           buttonColor={buttonColor}
           borderWidth={buttonBorderWidth}
           onPress={onPress}
