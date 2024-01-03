@@ -5,7 +5,7 @@ import {
   responsiveFontSize,
 } from "react-native-responsive-dimensions";
 import { Text, View, StyleSheet } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, CommonActions } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { NavigationBarInterface } from "../../interface/navigation/NavigationBarInterface";
@@ -52,9 +52,7 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
                 );
               }
 
-              if (
-                selectedTab.name === "Create"
-              ) {
+              if (selectedTab.name === "Create") {
                 return (
                   <View style={middleIcon}>
                     <Icons
@@ -104,6 +102,18 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
                 color={color}
               />
             )}
+            listeners={({ navigation, route }) => ({
+              focus: (e) => {
+                if (route.name === "Create") {
+                  navigation.dispatch(
+                    CommonActions.reset({
+                      index: 0,
+                      routes: [{ name: "CreateEventController" }],
+                    })
+                  );
+                }
+              },
+            })}
           />
         ))}
       </Tab.Navigator>
@@ -111,22 +121,21 @@ export const NavigationBar: React.FC<NavigationBarInterface> = ({
   );
 };
 
-  const styles = StyleSheet.create({
-    defaultTabBarStyle: {
-      borderTopLeftRadius: responsiveWidth(7),
-      borderTopRightRadius: responsiveWidth(7),
-      paddingBottom: responsiveWidth(5),
-      paddingTop: responsiveWidth(5),
-      height: responsiveWidth(30),
-    },
-    iconStyle: {
-      height: responsiveHeight(8),
-      width: responsiveHeight(8),
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      borderRadius: 30,
-      marginTop: responsiveHeight(2),
-    },
-  });
-  
+const styles = StyleSheet.create({
+  defaultTabBarStyle: {
+    borderTopLeftRadius: responsiveWidth(7),
+    borderTopRightRadius: responsiveWidth(7),
+    paddingBottom: responsiveWidth(5),
+    paddingTop: responsiveWidth(5),
+    height: responsiveWidth(30),
+  },
+  iconStyle: {
+    height: responsiveHeight(8),
+    width: responsiveHeight(8),
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 30,
+    marginTop: responsiveHeight(2),
+  },
+});
