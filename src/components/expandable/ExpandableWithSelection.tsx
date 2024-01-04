@@ -16,7 +16,6 @@ import {
 import Pen from "react-native-vector-icons/Ionicons";
 import { ExpandableWithSelectionInterface } from "../../interface/expandable/expandableWithSelectionInterface";
 import { Colors } from "../../theme/ColorsConstant";
-
 export const ExpandableWithSelection: React.FC<
   ExpandableWithSelectionInterface
 > = ({
@@ -94,7 +93,13 @@ export const ExpandableWithSelection: React.FC<
         <TouchableOpacity onPress={() => setIsExpanded(!isExpanded)}>
           <View style={{ alignSelf: "center", width: "80%" }}>
             <Image
-              source={{ uri: imageSource.uri }}
+              source={
+                title === "Organiser"
+                  ? require("../../assests/office-worker.png")
+                  : title === "Contributor"
+                  ? require("../../assests/division.png")
+                  : require("../../assests/working-time.png")
+              }
               style={{
                 height: responsiveWidth(imageHeight),
                 width: responsiveWidth(imageWidth),
@@ -109,7 +114,7 @@ export const ExpandableWithSelection: React.FC<
                 fontSize: responsiveFontSize(titleFontSize),
                 marginBottom: "2%",
                 color: titleColor,
-                fontFamily : fontFamily,
+                fontFamily: fontFamily,
               }}
             >
               {title}
@@ -119,7 +124,7 @@ export const ExpandableWithSelection: React.FC<
                 textAlign: "justify",
                 fontSize: responsiveFontSize(descriptionFontSize),
                 color: descriptionFontColor,
-                fontFamily : fontFamily,
+                fontFamily: fontFamily,
               }}
             >
               {titleDescription}
@@ -142,7 +147,7 @@ export const ExpandableWithSelection: React.FC<
                 style={{
                   color: "#fff",
                   textAlign: "center",
-                  fontFamily : fontFamily,
+                  fontFamily: fontFamily,
                 }}
               >
                 {buttonText}
@@ -187,7 +192,7 @@ export const ExpandableWithSelection: React.FC<
                 style={{
                   color: textColor,
                   fontSize: responsiveFontSize(textSize),
-                  fontFamily : fontFamily,
+                  fontFamily: fontFamily,
                 }}
               >
                 {title}

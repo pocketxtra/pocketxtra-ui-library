@@ -121,15 +121,22 @@ export const JobCard: React.FC<JobCardInterface & { onPress?: () => void }> = ({
             </Text>
           </View>
         </View>
-        <View style={{ marginTop: responsiveHeight(1.5) }}>
+        <View style={{
+          height:responsiveHeight(10),
+          width:responsiveWidth(20),
+          alignItems:'center',
+          justifyContent:'center'
+        }}>
           <Image
-            source={{ uri: imageUri }}
-            width={responsiveWidth(imageWidth)}
-            height={responsiveHeight(imageHeight)}
+            source={require("../../assests/working-time.png")}
+            style={{
+              height:responsiveHeight(10),
+              width:responsiveWidth(20),
+              resizeMode:'cover'
+            }}
           />
         </View>
       </View>
-
       <View style={{ alignSelf: "flex-start" }}>
         <PrimaryButton
           title={buttonText}
