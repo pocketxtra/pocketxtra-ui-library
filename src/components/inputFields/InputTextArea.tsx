@@ -56,6 +56,7 @@ export const InputTextArea: React.FC<InputTextAreaInterface & { onChangeText: (t
                     marginLeft: responsiveWidth(marginLeft),
                     marginRight: responsiveWidth(marginRight),
                     fontFamily : fontFamily,
+                    paddingTop: responsiveHeight(2)
                 }}
                 activeOutlineColor={activeOutlineColor}
                 placeholder={placeHolder}
