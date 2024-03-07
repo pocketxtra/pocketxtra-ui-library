@@ -7,7 +7,7 @@ import { Colors } from '../../theme/ColorsConstant';
 
 export const LiveEventCard: React.FC<LiveEventCardInterface> = ({
   startTime = '7:00PM',
-  paidBy = "PX",
+  paidBy = "",
   liveText = "LiveText",
   eventName = "Event Name",
   stripColor = "#fff",
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
       <Text style={{color: Colors.iconColor, fontFamily: fontFamily}}>
        {eventName}
       </Text>
-      <Text style={{color: textColor, fontFamily: fontFamily}}>Paid By {paidBy}</Text>
+      <Text style={{color: textColor, fontFamily: fontFamily}}>{paidBy}</Text>
 
       </View>
       <View style={styles.time}>

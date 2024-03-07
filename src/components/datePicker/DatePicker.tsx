@@ -48,8 +48,7 @@ export const DatePicker: React.FC<
   };
 
   const handleDateConfirm = (date) => {
-    let tempDate = date.toISOString().split("T")[0];
-    console.log("Formatted :", tempDate);
+    let tempDate = date.toISOString().split("T")[0].slice(0, 10).split('-').reverse().join('-');
     setPickedDate(date.toISOString());
     setText(tempDate);
     hideDatePicker();
