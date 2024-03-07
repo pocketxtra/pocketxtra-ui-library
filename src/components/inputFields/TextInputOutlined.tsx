@@ -48,6 +48,7 @@ export const TextInputOutlined: React.FC<
   fontFamily,
   infoMessage = "",
   infoDisplay = false,
+  infoColor = Colors.textColor,
 }) => {
   const [text, setText] = useState<string>("");
   const [isInfoVisible, setIsInfoVisible] = useState(false);
@@ -119,7 +120,7 @@ export const TextInputOutlined: React.FC<
                 style={styles.iconContainer}
                 onPress={toggleInfo}
               >
-                <Entypo name="info-with-circle" size={24} color="black" />
+                <Entypo name="info-with-circle" size={24} color={infoColor} />
               </TouchableOpacity>
             </View>
           ) : null}

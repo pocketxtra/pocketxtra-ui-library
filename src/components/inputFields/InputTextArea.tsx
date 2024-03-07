@@ -42,6 +42,7 @@ export const InputTextArea: React.FC<
   value = "",
   infoMessage = "",
   infoDisplay = false,
+  infoColor = Colors.textColor,
   onChangeText = () => {},
   fontFamily,
 }) => {
@@ -114,7 +115,7 @@ export const InputTextArea: React.FC<
                 style={styles.iconContainer}
                 onPress={toggleInfo}
               >
-                <Entypo name="info-with-circle" size={24} color="black" />
+                <Entypo name="info-with-circle" size={24} color={infoColor} />
               </TouchableOpacity>
             </View>
           ) : null}

@@ -21,4 +21,7 @@ export interface InputTextAreaInterface {
     marginRight?:number,
     value?:string,
     fontFamily?: string,
+    infoMessage?:string,
+    infoDisplay?:boolean,
+    infoColor?:string
 }
