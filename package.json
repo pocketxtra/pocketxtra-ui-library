@@ -1,6 +1,6 @@
 {
   "name": "pocketxtra-ui-library",
-  "version": "2.0.9",
+  "version": "3.0.3",
   "description": "UI library for the pocketxtra react native app",
   "main": "src/index.ts",
   "author": "pocketxtra",
