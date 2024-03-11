@@ -13,6 +13,7 @@ import { ImagePickerComponentInterface } from "../../interface/imagePicker/Image
 import * as ImagePicker from "expo-image-picker";
 import { Camera } from "expo-camera";
 import { Colors } from "../../theme/ColorsConstant";
+import * as ImageManipulator from "expo-image-manipulator";
 
 export const ImagePickerComponent: React.FC<
   ImagePickerComponentInterface & { onChangeImage: (text: string) => void }
@@ -67,7 +68,28 @@ export const ImagePickerComponent: React.FC<
   const clickPicture = async () => {
     if (cameraRef) {
       const photo = await cameraRef.takePictureAsync();
-      setImage(photo.uri);
+
+      // Get the original image's dimensions
+      const { width, height } = await ImageManipulator.manipulateAsync(
+        photo.uri,
+        [],
+        {
+          format: ImageManipulator.SaveFormat.JPEG,
+        }
+      );
+
+      // Calculate the resized dimensions to maintain aspect ratio
+      const targetWidth = 800; // Target width
+      const targetHeight = (height * targetWidth) / width; // Maintain aspect ratio
+
+      // Resize and compress the captured image
+      const compressedImage = await ImageManipulator.manipulateAsync(
+        photo.uri,
+        [{ resize: { width: targetWidth, height: targetHeight } }],
+        { compress: 0.1, format: ImageManipulator.SaveFormat.JPEG }
+      );
+
+      setImage(compressedImage.uri);
       setShowCamera(false);
     }
   };
@@ -108,11 +130,33 @@ export const ImagePickerComponent: React.FC<
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
-      quality: 1,
+      quality: 0.1,
     });
 
     if (!result.canceled) {
-      setImage(result.assets[0].uri);
+      const { uri } = result.assets[0];
+
+      // Get the image's dimensions
+      const { width, height } = await ImageManipulator.manipulateAsync(
+        uri,
+        [],
+        {
+          format: ImageManipulator.SaveFormat.JPEG,
+        }
+      );
+
+      // Calculate the resized dimensions to maintain aspect ratio
+      const resizeWidth = 600; // Target width
+      const resizeHeight = (height * resizeWidth) / width; // Maintain aspect ratio
+
+      // Compress the image with the calculated dimensions
+      const compressedImage = await ImageManipulator.manipulateAsync(
+        uri,
+        [{ resize: { width: resizeWidth, height: resizeHeight } }],
+        { compress: 0.2, format: ImageManipulator.SaveFormat.JPEG }
+      );
+
+      setImage(compressedImage.uri);
     }
   };
 
