@@ -23,5 +23,6 @@ export interface InputTextAreaInterface {
     fontFamily?: string,
     infoMessage?:string,
     infoDisplay?:boolean,
-    infoColor?:string
+    infoColor?:string,
+    maxLength?:number
 }

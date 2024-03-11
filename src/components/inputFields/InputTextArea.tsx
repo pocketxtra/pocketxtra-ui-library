@@ -45,6 +45,7 @@ export const InputTextArea: React.FC<
   infoColor = Colors.textColor,
   onChangeText = () => {},
   fontFamily,
+  maxLength = 70,
 }) => {
   const [areaText, setAreaText] = useState<string>("");
   const [isInfoVisible, setIsInfoVisible] = useState(false);
@@ -98,6 +99,7 @@ export const InputTextArea: React.FC<
             value={areaText}
             multiline={multiline}
             numberOfLines={numberOfLines}
+            maxLength={maxLength}
           />
           {infoDisplay ? (
             <View
