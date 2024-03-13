@@ -81,6 +81,7 @@ export const InputTextArea: React.FC<
               width: responsiveWidth(width),
               fontSize: responsiveFontSize(fontSize),
               fontFamily: fontFamily,
+              paddingTop: responsiveHeight(1.1),
             }}
             activeOutlineColor={activeOutlineColor}
             placeholder={placeHolder}
