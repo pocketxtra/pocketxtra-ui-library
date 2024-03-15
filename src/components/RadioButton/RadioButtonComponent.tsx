@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 import { RadioButton } from "react-native-paper";
 import {
@@ -40,10 +40,9 @@ export const CustomRadioButtonComponent: React.FC<
       ? { flexDirection: "row", justifyContent: "space-around" }
       : { flexDirection: "column" };
 
-      useEffect(() => {
-        setChecked(propValue);
-      }, [propValue]);
-    
+  useEffect(() => {
+    setChecked(propValue);
+  }, [propValue]);
 
   return (
     <View style={{ ...containerStyle }}>
@@ -72,16 +71,20 @@ export const CustomRadioButtonComponent: React.FC<
               marginVertical: responsiveWidth(marginVertical),
             }}
           >
-            <RadioButton
-              value={option.value}
-              onPress={() => {
-                setChecked(option.value);
-                handleValueChange(option.value);
-              }}
-              color={checkedColor}
-              uncheckedColor={uncheckedColor}
-              status={checked === option.value ? "checked" : "unchecked"}
-            />
+            <View
+              style={{ borderColor: "white", borderWidth: 1, borderRadius: 20 }}
+            >
+              <RadioButton
+                value={option.value}
+                onPress={() => {
+                  setChecked(option.value);
+                  handleValueChange(option.value);
+                }}
+                color={checkedColor}
+                uncheckedColor={uncheckedColor}
+                status={checked === option.value ? "checked" : "unchecked"}
+              />
+            </View>
             <Text
               style={{
                 color: checked == option.value ? textColor : unSelectedColor,

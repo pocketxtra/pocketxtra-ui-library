@@ -25,4 +25,7 @@ export interface TextInputOutlinedInterface {
     value?:string,
     errorFontSize?:number,
     fontFamily?: string,
+    infoMessage?:string,
+    infoDisplay?:boolean
+    infoColor?:string
 }
